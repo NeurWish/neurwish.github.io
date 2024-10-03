@@ -4,7 +4,9 @@ var arToolkitSource, arToolkitContext;
 
 var markerRoot1, markerRoot2;
 
-var mesh1, raycaster, groundPlane, intersectedPoint;
+var mesh1;
+var gyroscopeData = {alpha: 0, beta: 0, gamma: 0}; // 儲存手機陀螺儀數據
+var markerDetected = false;
 
 initialize();
 animate();
@@ -12,65 +14,65 @@ animate();
 function initialize() {
     scene = new THREE.Scene();
 
-    let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.5 );
-    scene.add( ambientLight );
-                
+    let ambientLight = new THREE.AmbientLight(0xcccccc, 0.5);
+    scene.add(ambientLight);
+
     camera = new THREE.Camera();
     scene.add(camera);
 
     renderer = new THREE.WebGLRenderer({
-        antialias : true,
+        antialias: true,
         alpha: true
     });
-    renderer.setClearColor(new THREE.Color('lightgrey'), 0)
-    renderer.setSize( 640, 480 );
-    renderer.domElement.style.position = 'absolute'
-    renderer.domElement.style.top = '0px'
-    renderer.domElement.style.left = '0px'
-    document.body.appendChild( renderer.domElement );
+    renderer.setClearColor(new THREE.Color('lightgrey'), 0);
+    renderer.setSize(640, 480);
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.top = '0px';
+    renderer.domElement.style.left = '0px';
+    document.body.appendChild(renderer.domElement);
 
     clock = new THREE.Clock();
     deltaTime = 0;
     totalTime = 0;
-    
+
     ////////////////////////////////////////////////////////////
     // setup arToolkitSource
     ////////////////////////////////////////////////////////////
 
     arToolkitSource = new THREEx.ArToolkitSource({
-        sourceType : 'webcam',
+        sourceType: 'webcam',
     });
 
     function onResize() {
-        arToolkitSource.onResize()    
-        arToolkitSource.copySizeTo(renderer.domElement)    
-        if ( arToolkitContext.arController !== null ) {
-            arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)    
-        }    
+        arToolkitSource.onResize();
+        arToolkitSource.copySizeTo(renderer.domElement);
+        if (arToolkitContext.arController !== null) {
+            arToolkitSource.copySizeTo(arToolkitContext.arController.canvas);
+        }
     }
 
-    arToolkitSource.init(function onReady(){
-        onResize()
+    arToolkitSource.init(function onReady() {
+        onResize();
     });
-    
+
     // handle resize event
-    window.addEventListener('resize', function(){
-        onResize()
+    window.addEventListener('resize', function () {
+        onResize();
     });
-    
+
     ////////////////////////////////////////////////////////////
     // setup arToolkitContext
-    ////////////////////////////////////////////////////////////    
+    ////////////////////////////////////////////////////////////
 
     // create atToolkitContext
     arToolkitContext = new THREEx.ArToolkitContext({
         cameraParametersUrl: 'data/camera_para.dat',
         detectionMode: 'mono'
     });
-    
+
     // copy projection matrix to camera when initialization complete
-    arToolkitContext.init( function onCompleted(){
-        camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
+    arToolkitContext.init(function onCompleted() {
+        camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
     });
 
     ////////////////////////////////////////////////////////////
@@ -82,41 +84,59 @@ function initialize() {
     scene.add(markerRoot1);
     let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
         type: 'pattern', patternUrl: "data/hiro.patt",
+        changeMatrixMode: 'modelViewMatrix'
     });
 
-    let geometry1 = new THREE.CubeGeometry(1,1,1);
+    let geometry1 = new THREE.CubeGeometry(1, 1, 1);
     let material1 = new THREE.MeshNormalMaterial({
         transparent: true,
         opacity: 0.5,
         side: THREE.DoubleSide
-    }); 
-    
-    mesh1 = new THREE.Mesh( geometry1, material1 );
-    markerRoot1.add( mesh1 );
+    });
 
-    // 初始化 raycaster 和地板
-    raycaster = new THREE.Raycaster();
-    groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);  // 地板水平放置在 y = 0
+    mesh1 = new THREE.Mesh(geometry1, material1);
+    mesh1.visible = false; // 一開始隱藏
+
+    scene.add(mesh1); // 直接加到場景，不加到 marker 上
+    setupGyroscope();
+}
+
+function setupGyroscope() {
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', function (event) {
+            gyroscopeData.alpha = event.alpha; // z 軸旋轉
+            gyroscopeData.beta = event.beta; // x 軸旋轉
+            gyroscopeData.gamma = event.gamma; // y 軸旋轉
+        });
+    } else {
+        console.log("DeviceOrientationEvent is not supported on this device.");
+    }
 }
 
 function update() {
     // update artoolkit on every frame
-    if ( arToolkitSource.ready !== false )
-        arToolkitContext.update( arToolkitSource.domElement );
+    if (arToolkitSource.ready !== false)
+        arToolkitContext.update(arToolkitSource.domElement);
 
-    // 將 raycaster 方向設置為從攝影機向下偵測地板
-    raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);  // 假設中心點是地板
-    var intersects = raycaster.ray.intersectPlane(groundPlane, intersectedPoint);
+    if (markerRoot1.visible && !markerDetected) {
+        markerDetected = true;
+        // 在偵測到 marker 後，將模型設置到相對應的位置
+        mesh1.position.set(0, 10, -10); // 根據指定位置生成 cube
+        mesh1.visible = true;
+    }
 
-    // 如果有偵測到地板，將模型移到偵測到的位置
-    if (intersects) {
-        mesh1.position.copy(intersectedPoint);
-        mesh1.position.y += 0.5;  // 模型放在地板上方一點點
+    if (markerDetected) {
+        // 使用陀螺儀數據調整物體的旋轉
+        mesh1.rotation.set(
+            THREE.Math.degToRad(gyroscopeData.beta),
+            THREE.Math.degToRad(gyroscopeData.alpha),
+            THREE.Math.degToRad(gyroscopeData.gamma)
+        );
     }
 }
 
 function render() {
-    renderer.render( scene, camera );
+    renderer.render(scene, camera);
 }
 
 function animate() {
