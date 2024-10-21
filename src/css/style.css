@@ -120,3 +120,13 @@
   pointer-events: none; /* 防止遮罩影響其他操作 */
   transition: opacity 1s ease-in-out; /* 添加漸變效果 */
 }
+
+#click-listener {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent; /* 透明背景 */
+  z-index: 10000; /* 確保它在最上層 */
+}
