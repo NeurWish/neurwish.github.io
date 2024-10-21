@@ -37,6 +37,7 @@
   border-radius: 10px;
   line-height: 1.5em; /* 行間距 */
   transition: transform 0.5s ease; /* 使方塊移動時有動畫效果 */
+  display: flex;
 }
 
 #camera-coordinates {
@@ -50,6 +51,7 @@
   border-radius: 10px;
   line-height: 1.5em; /* 行間距 */
   transition: transform 0.5s ease; /* 使方塊移動時有動畫效果 */
+  display: flex;
 }
 
 #coordinates.minimized {
