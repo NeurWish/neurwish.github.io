@@ -28,6 +28,7 @@
 
 #coordinates {
   position: absolute;
+  top: 10px; 
   left: 10px;
   color: white;
   font-size: 16px;
