@@ -116,17 +116,7 @@
   height: 100vh;
   background-color: black;
   opacity: 0; /* 初始透明度為0，不顯示 */
-  z-index: 9999; /* 確保遮罩在最上層 */
+  z-index: 999; /* 確保遮罩在最上層 */
   pointer-events: none; /* 防止遮罩影響其他操作 */
   transition: opacity 1s ease-in-out; /* 添加漸變效果 */
-}
-
-#click-listener {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent; /* 透明背景 */
-  z-index: 10000; /* 確保它在最上層 */
 }

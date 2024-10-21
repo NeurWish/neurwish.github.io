@@ -11,61 +11,6 @@ window.onload = function() {
   const gpsCamera = document.querySelector('[gps-camera]');
   const EARTH_RADIUS = 6371000; // 地球半徑（公尺）
 
-  // 監聽三次點擊的透明div
-  const clickListener = document.getElementById('click-listener');
-  clickListener.style.position = 'absolute';
-  clickListener.style.top = '0';
-  clickListener.style.left = '0';
-  clickListener.style.width = '100vw';
-  clickListener.style.height = '100vh';
-  clickListener.style.zIndex = '10000'; // 確保點擊區域在最上層
-  clickListener.style.backgroundColor = 'transparent'; // 透明背景
-  let clickCount = 0;
-  let hideTimeout;
-
-  // 顯示UI元素並設置自動隱藏的計時器
-  const showUI = () => {
-    clearTimeout(hideTimeout); // 清除舊的隱藏計時器
-    coordinatesDiv.style.display = 'block';
-    cameraCoordinatesDiv.style.display = 'block';
-    toggleButton.style.display = 'block';
-    document.getElementById('height-controls').style.display = 'flex';
-    document.getElementById('switch-button').style.display = 'block';
-
-    // 設置10秒後自動隱藏UI
-    hideTimeout = setTimeout(() => {
-      coordinatesDiv.style.display = 'none';
-      cameraCoordinatesDiv.style.display = 'none';
-      toggleButton.style.display = 'none';
-      document.getElementById('height-controls').style.display = 'none';
-      document.getElementById('switch-button').style.display = 'none';
-      clickListener.style.display = 'block'; // 顯示透明div來再次喚醒UI
-    }, 10000);
-  };
-
-  // 隱藏UI
-  const hideUI = () => {
-    coordinatesDiv.style.display = 'none';
-    cameraCoordinatesDiv.style.display = 'none';
-    toggleButton.style.display = 'none';
-    document.getElementById('height-controls').style.display = 'none';
-    document.getElementById('switch-button').style.display = 'none';
-    clickListener.style.display = 'block'; // 顯示透明div來再次喚醒UI
-  };
-
-  // 計算點擊次數以觸發UI顯示
-  clickListener.addEventListener('click', () => {
-    clickCount += 1;
-    if (clickCount === 3) {
-      clickCount = 0; // 重置點擊次數
-      showUI();
-      clickListener.style.display = 'none'; // 隱藏透明div
-    }
-  });
-
-  // 初始化時隱藏所有UI
-  hideUI();
-
   // 建立高度控制按鈕
   const heightControls = document.createElement('div');
   heightControls.id = 'height-controls';
@@ -86,6 +31,65 @@ window.onload = function() {
   switchButton.id = 'switch-button';
   switchButton.innerHTML = '切換位置'; // 按鈕文字
   document.body.appendChild(switchButton);
+
+  // 預設隱藏 UI
+coordinatesDiv.style.display = 'none';
+cameraCoordinatesDiv.style.display = 'none';
+heightControls.style.display = 'none';
+toggleButton.style.display = 'none';
+switchButton.style.display = 'none';
+
+// 新增全畫面透明的 div 來監聽點擊
+const clickListener = document.createElement('div');
+clickListener.id = 'click-listener';
+clickListener.style.position = 'fixed';
+clickListener.style.top = '0';
+clickListener.style.left = '0';
+clickListener.style.width = '100%';
+clickListener.style.height = '100%';
+clickListener.style.backgroundColor = 'rgba(255, 255, 255, 0)'; // 透明背景
+document.body.appendChild(clickListener);
+
+let clickCount = 0; // 點擊次數計數器
+let hideTimeout; // 隱藏 UI 的定時器
+let resetCountTimeout; // 重置計數器的定時器
+
+// 點擊全畫面透明的 div 來顯示 UI
+clickListener.addEventListener('click', (event) => {
+  event.preventDefault();  // 阻止預設行為
+  clickCount++;
+
+  // 每次點擊重置隱藏的定時器
+  clearTimeout(hideTimeout);
+  clearTimeout(resetCountTimeout); // 清除計數器重置定時器
+
+  // 每次點擊後開始 5 毫秒計時器，若無點擊則重置計數器
+  resetCountTimeout = setTimeout(() => {
+    clickCount = 0; // 重置計數器
+  }, 1000);
+
+  if (clickCount >= 3) { // 點擊 3 次顯示 UI
+    coordinatesDiv.style.display = 'block';
+    cameraCoordinatesDiv.style.display = 'block';
+    heightControls.style.display = 'flex';
+    toggleButton.style.display = 'block';
+    switchButton.style.display = 'block';
+
+    // 隱藏透明的 div
+    clickListener.style.display = 'none';
+
+    // 開始 10 秒倒計時，若無點擊則隱藏 UI
+    hideTimeout = setTimeout(() => {
+      coordinatesDiv.style.display = 'none';
+      cameraCoordinatesDiv.style.display = 'none';
+      heightControls.style.display = 'none';
+      toggleButton.style.display = 'none';
+      switchButton.style.display = 'none';
+      clickCount = 0; // 重置計數器
+      clickListener.style.display = 'block'; // 顯示透明的 div
+    }, 5000); // 5 秒
+  }
+});
 
   buttonUp.addEventListener('click', (event) => {
     event.preventDefault();  // 阻止預設行為
