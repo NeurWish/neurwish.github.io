@@ -66,7 +66,7 @@ clickListener.addEventListener('click', (event) => {
   // 每次點擊後開始 5 毫秒計時器，若無點擊則重置計數器
   resetCountTimeout = setTimeout(() => {
     clickCount = 0; // 重置計數器
-  }, 2000);
+  }, 2000); // 2秒
 
   if (clickCount >= 3) { // 點擊 3 次顯示 UI
     coordinatesDiv.style.display = 'block';
@@ -87,7 +87,7 @@ clickListener.addEventListener('click', (event) => {
       switchButton.style.display = 'none';
       clickCount = 0; // 重置計數器
       clickListener.style.display = 'block'; // 顯示透明的 div
-    }, 8000); // 5 秒
+    }, 8000); // 8 秒
   }
 });
 
