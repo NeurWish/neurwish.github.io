@@ -26,7 +26,7 @@
 }
 
 
-#coordinates, #camera-coordinates {
+#coordinates {
   position: absolute;
   left: 10px;
   color: white;
@@ -39,7 +39,16 @@
 }
 
 #camera-coordinates {
-  top: 40px; /* 與 #coordinates 的位置有間隔 */
+  position: absolute; 
+  top: 60px; 
+  left: 10px; 
+  color: white; 
+  font-size: 16px;
+  background-color: rgba(0, 0, 255, 0.3); /* 半透明藍底 */
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 1.5em; /* 行間距 */
+  transition: transform 0.5s ease; /* 使方塊移動時有動畫效果 */
 }
 
 #coordinates.minimized {
@@ -74,7 +83,7 @@
   bottom: 20px; /* 距離底部20像素 */
   left: 20px; /* 距離左側20像素 */
   padding: 10px 15px; /* 按鈕內部邊距 */
-  background-color: #008CBA; /* 初始背景顏色 */
+  background-color: rgba(0, 0, 255, 0.6); /* 初始背景顏色 */
   color: white; /* 按鈕文字顏色 */
   border: none; /* 無邊框 */
   border-radius: 5px; /* 邊角圓弧 */
@@ -84,7 +93,7 @@
 
 /* 當按鈕被激活時的效果 */
 #switch-button.active {
-  background-color: #4CAF50; /* 激活狀態的背景顏色 */
+  background-color: rgba(0, 0, 255, 0.6); /* 激活狀態的背景顏色 */
   color: white; /* 激活狀態的文字顏色 */
   transform: scale(1.05); /* 激活狀態的放大效果 */
 }
@@ -96,4 +105,17 @@
 
 .a-enter-vr {
   display: none;
+}
+
+#fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0; /* 初始透明度為0，不顯示 */
+  z-index: 9999; /* 確保遮罩在最上層 */
+  pointer-events: none; /* 防止遮罩影響其他操作 */
+  transition: opacity 1s ease-in-out; /* 添加漸變效果 */
 }
