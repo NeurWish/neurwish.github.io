@@ -1,0 +1,21 @@
+#pages-01-bg {
+  transform-origin: center;
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 100%; 
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 101;
+}
+
+#pages-01-word {  
+  margin: auto;
+  display: block;
+  transform-origin: center;
+  position: absolute;
+  z-index: 101;
+}

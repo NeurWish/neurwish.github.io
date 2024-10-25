@@ -47,6 +47,7 @@ clickListener.style.top = '0';
 clickListener.style.left = '0';
 clickListener.style.width = '100%';
 clickListener.style.height = '100%';
+clickListener.style.zIndex = '100';
 clickListener.style.backgroundColor = 'rgba(255, 255, 255, 0)'; // 透明背景
 document.body.appendChild(clickListener);
 
@@ -87,7 +88,7 @@ clickListener.addEventListener('click', (event) => {
       switchButton.style.display = 'none';
       clickCount = 0; // 重置計數器
       clickListener.style.display = 'block'; // 顯示透明的 div
-    }, 8000); // 8 秒
+    }, 6000); // 8 秒
   }
 });
 
@@ -106,11 +107,12 @@ clickListener.addEventListener('click', (event) => {
   });
 
   // 切換模擬位置
-  let currentLocationIndex = 0; // 初始位置索引為 0
+  let currentLocationIndex = 1; // 初始位置索引為 0
   const locations = [
-    { latitude: 22.838301, longitude: 120.416253 }, // 第一個位置
-    { latitude: 22.738301, longitude: 120.316253 }, // 第二個位置
-    { latitude: 22.572110149552514, longitude: 120.3253901992984 } // 第三個位置
+    { latitude: 22.10001, longitude: 120.10001 }, // 第一個位置
+    { latitude: 22.20001, longitude: 120.20001 }, // 第二個位置
+    { latitude: 22.30001, longitude: 120.30001 }, // 第三個位置
+    { latitude: 22.40001, longitude: 120.40001 } // 第四個位置
   ];
 
   switchButton.addEventListener('click', (event) => {
