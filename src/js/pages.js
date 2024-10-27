@@ -169,10 +169,45 @@ async function loadContent(pageNumber) {
     }
 }
 
-// A-Frame 初始化函數
-function initializeAFrame() {
-    const aScene = document.querySelector('a-scene');
-    if (aScene) {
-        aScene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
-    }
+// Function to create and append the A-Frame scene
+function initializeARScene() {
+    const scene = document.createElement('a-scene');
+    scene.setAttribute('vr-mode-ui', 'enabled: false');
+    scene.setAttribute('embedded', '');
+    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+    scene.setAttribute('arkit', 'detectionMode: plane');
+
+    const camera = document.createElement('a-camera');
+    camera.setAttribute('gps-camera', 'simulateLatitude: 22.738301; simulateLongitude: 120.316253');
+    camera.setAttribute('rotation-reader', '');
+
+    scene.appendChild(camera);
+
+    const assets = `
+        <a-assets>
+            <a-asset-item id="Animals" src="assets/models/glb/Animals/Animal_1_1_7min.glb"></a-asset-item>
+            <a-asset-item id="Confetti" src="assets/models/glb/Confetti_Only.glb"></a-asset-item>
+            <a-asset-item id="Weapon" src="assets/models/glb/Weapon/Weapon_2_2_1_1min53sec.glb"></a-asset-item>
+            <a-asset-item id="Butterfly" src="assets/models/glb/Butterfly/BUTTERFLY_LOOP_01.glb"></a-asset-item>
+        </a-assets>
+    `;
+    scene.innerHTML += assets;
+
+    const entities = `
+        <a-entity position="0 0 0" animation-mixer="clip: *; loop: repeat;" gltf-model="#Animals" scale="1 1 1" gps-entity-place="latitude: 22.10001; longitude: 120.10001;"></a-entity>
+        <a-entity position="0 0 0" animation-mixer="clip: *; loop: repeat;" gltf-model="#Confetti" scale="1 1 1" gps-entity-place="latitude: 22.20001; longitude: 120.20001;"></a-entity>
+        <a-entity position="0 0 0" animation-mixer="clip: *; loop: repeat;" gltf-model="#Weapon" scale="1 1 1" gps-entity-place="latitude: 22.30001; longitude: 120.30001;"></a-entity>
+        <a-entity position="0 0 0" animation-mixer="clip: *; loop: repeat;" gltf-model="#Butterfly" scale="1 1 1" gps-entity-place="latitude: 22.40001; longitude: 120.40001;"></a-entity>
+    `;
+    scene.innerHTML += entities;
+
+    document.body.appendChild(scene);
 }
+
+// Your existing JavaScript code for managing page transitions...
+
+// Call this function when your condition is met
+setTimeout(() => {
+    pg.classList.add('bg-hidden'); // Your condition met here
+    initializeARScene(); // Initialize the AR scene
+}, 5000); // Adjust this timing to match your needs
