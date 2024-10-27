@@ -1,3 +1,4 @@
+window.onload = function() {
   const coordinatesDiv = document.getElementById('coordinates');
   const cameraCoordinatesDiv = document.getElementById('camera-coordinates');
   const toggleButton = document.createElement('div');
@@ -251,4 +252,4 @@ clickListener.addEventListener('click', (event) => {
     const cameraPosition = gpsCamera.object3D.position;
     cameraCoordinatesDiv.innerHTML = `Camera Position: X: ${cameraPosition.x.toFixed(2)}, Y: ${cameraPosition.y.toFixed(2)}, Z: ${cameraPosition.z.toFixed(2)}`;
   }, 100); // 每 100 毫秒更新一次
-
+};
