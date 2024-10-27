@@ -2,7 +2,6 @@ window.onload = function() {
   const coordinatesDiv = document.getElementById('coordinates');
   const cameraCoordinatesDiv = document.getElementById('camera-coordinates');
   const toggleButton = document.createElement('div');
-  const pg = document.getElementById('pages');
   toggleButton.id = 'toggle-button';
   toggleButton.innerHTML = '→'; // 箭頭符號
   document.body.appendChild(toggleButton);
@@ -47,7 +46,7 @@ clickListener.style.position = 'fixed';
 clickListener.style.top = '0';
 clickListener.style.right = '0';
 clickListener.style.width = '100%';
-clickListener.style.height = '40%';
+clickListener.style.height = '20%';
 clickListener.style.zIndex = '100';
 clickListener.style.backgroundColor = 'rgba(255, 255, 255, 0)'; // 透明背景
 document.body.appendChild(clickListener);
@@ -90,10 +89,8 @@ clickListener.addEventListener('click', (event) => {
       switchButton.style.display = 'none';
       clickCount = 0; // 重置計數器
       clickListener.style.display = 'block'; // 顯示透明的 div
-      
       pg.style.display = 'block';
-
-    }, 10000); // 10 秒
+    }, 6000); // 6 秒
   }
 });
 
