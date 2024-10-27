@@ -7,14 +7,31 @@
     <link rel="stylesheet" type="text/css" href="./src/css/pages.css">
     <link rel="stylesheet" type="text/css" href="./src/css/ui.css">
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@latest/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-arkit@0.2.0/dist/aframe-arkit.min.js"></script>
   </head>
 
-  <body style="margin: 0; overflow: hidden;">
+  <body style="margin: 0; overflow: hidden; background-color: gray;">
+
+    <div class="pages" id="pages">
+        <div class="pages-01-logo" id="pages-01-logo">
+        </div>
+      <div class="pages-info" id="pages-info">
+          <div class="title" id="title"></div>
+          <div class="description" id="description"></div>
+          <div class="phone-con" id="phone-con"></div>
+          <div class="pages-point" id="pages-point"></div>
+      </div>
+      <button class="pages-button hidden" id="pages-02-button">
+        <img src="./assets/imgs/pages/02/02-1/02-1-btn.svg">
+      </button>
+      <button class="pages-button hidden" id="pages-03-button">
+        <div id="pg03btn-word" class="back-button">體驗說明</div>
+      </button>
+    </div>
+    
     <div id="coordinates">
       Coordinates: Loading...
     </div>
@@ -24,11 +41,13 @@
     </div>
   
     <div id="fade-overlay"></div>
-
-    <script src="./src/js/main.js"></script>
+    
+    
+    <script src="./src/js/pages.js"></script>
+    <script src="./src/js/main-ar.js"></script>
   
     <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" arkit="detectionMode: plane;">
-      <a-camera gps-camera='simulateLatitude: 22.10001; simulateLongitude: 120.10001' rotation-reader> </a-camera>
+      <a-camera gps-camera='simulateLatitude: 22.738301; simulateLongitude: 120.316253' rotation-reader> </a-camera>
       <a-assets>
         <a-asset-item id="Animals" src="assets/models/glb/Animals/Animal_1_1_7min.glb"></a-asset-item>
         <a-asset-item id="Confetti" src="assets/models/glb/Confetti_Only.glb"></a-asset-item>
