@@ -46,8 +46,8 @@ clickListener.id = 'click-listener';
 clickListener.style.position = 'fixed';
 clickListener.style.top = '0';
 clickListener.style.right = '0';
-clickListener.style.width = '200px';
-clickListener.style.height = '150px';
+clickListener.style.width = '100%';
+clickListener.style.height = '40%';
 clickListener.style.zIndex = '100';
 clickListener.style.backgroundColor = 'rgba(255, 255, 255, 0)'; // 透明背景
 document.body.appendChild(clickListener);
