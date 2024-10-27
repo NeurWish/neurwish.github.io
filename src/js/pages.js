@@ -86,14 +86,10 @@ pg03bt.addEventListener('click', (event) => {
 
         pg03bt.appendChild(logoDiv);
         
-        pg.style.zIndex = '101';
-        
     } else {
         // 隱藏資訊背景，移除體驗說明文字
         pginfobg.classList.add('hidden');
         pg03bt.classList.remove('back-button');
-
-        pg.style.zIndex = '99';
 
         // 創建 "體驗說明" div，如果尚未存在
         let pg03btn_word = document.getElementById('pg03btn-word');
@@ -152,11 +148,15 @@ async function loadContent(pageNumber) {
                 pg03bt.style.borderRadius = '0 45px 45px 0';
                 pg03bt.classList.remove('hidden');
                 pginfobg.classList.add('hidden');
+
+                pg.style.zIndex = '99';
             } else {
                 pginfobg.classList.remove('pages-03'); // 移除 pages-03 類               
                 pg02bt.classList.remove('hidden');
                 pginfobg.classList.remove('hidden');
-                pg03bt.classList.add('hidden');               
+                pg03bt.classList.add('hidden');        
+                
+                pg.style.zIndex = '101';
             }
 
             // 根據 currentPage 顯示或隱藏 phonecon
