@@ -168,11 +168,3 @@ async function loadContent(pageNumber) {
         console.error("無法加載內容:", error);
     }
 }
-
-// A-Frame 初始化函數
-function initializeAFrame() {
-    const aScene = document.querySelector('a-scene');
-    if (aScene) {
-        aScene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
-    }
-}
