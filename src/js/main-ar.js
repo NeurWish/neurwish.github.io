@@ -2,6 +2,7 @@ window.onload = function() {
   const coordinatesDiv = document.getElementById('coordinates');
   const cameraCoordinatesDiv = document.getElementById('camera-coordinates');
   const toggleButton = document.createElement('div');
+  const pg = document.getElementById('pages');
   toggleButton.id = 'toggle-button';
   toggleButton.innerHTML = '→'; // 箭頭符號
   document.body.appendChild(toggleButton);
@@ -44,9 +45,9 @@ const clickListener = document.createElement('div');
 clickListener.id = 'click-listener';
 clickListener.style.position = 'fixed';
 clickListener.style.top = '0';
-clickListener.style.left = '0';
-clickListener.style.width = '100%';
-clickListener.style.height = '100%';
+clickListener.style.right = '0';
+clickListener.style.width = '20%';
+clickListener.style.height = '20%';
 clickListener.style.zIndex = '100';
 clickListener.style.backgroundColor = 'rgba(255, 255, 255, 0)'; // 透明背景
 document.body.appendChild(clickListener);
@@ -77,6 +78,7 @@ clickListener.addEventListener('click', (event) => {
     switchButton.style.display = 'block';
 
     // 隱藏透明的 div
+    pg.style.display = 'none';
     clickListener.style.display = 'none';
 
     // 開始 10 秒倒計時，若無點擊則隱藏 UI
@@ -88,7 +90,10 @@ clickListener.addEventListener('click', (event) => {
       switchButton.style.display = 'none';
       clickCount = 0; // 重置計數器
       clickListener.style.display = 'block'; // 顯示透明的 div
-    }, 6000); // 8 秒
+      
+      pg.style.display = 'block';
+
+    }, 10000); // 10 秒
   }
 });
 

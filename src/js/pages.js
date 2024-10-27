@@ -86,10 +86,14 @@ pg03bt.addEventListener('click', (event) => {
 
         pg03bt.appendChild(logoDiv);
         
+        pg.style.zIndex = '101';
+        
     } else {
         // 隱藏資訊背景，移除體驗說明文字
         pginfobg.classList.add('hidden');
         pg03bt.classList.remove('back-button');
+
+        pg.style.zIndex = '99';
 
         // 創建 "體驗說明" div，如果尚未存在
         let pg03btn_word = document.getElementById('pg03btn-word');
