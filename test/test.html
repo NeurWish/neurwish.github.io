@@ -49,14 +49,44 @@
     
     <script src="../src/js/pages.js"></script>
     <script src="../src/js/main-ar.js"></script>
+    <script>
+      // 檢查 CORS 和下載時間的函數
+      async function checkGLBStatus() {
+        const url = 'https://mytestbox.s3.ap-northeast-1.amazonaws.com/Test.glb';
+        const startTime = performance.now(); // 開始計時
+    
+        try {
+          const response = await fetch(url, { method: 'HEAD' }); // 使用 HEAD 方法檢查資源是否可訪問
+    
+          // 計算下載時間
+          const endTime = performance.now();
+          const downloadTime = endTime - startTime;
+    
+          // 檢查回應是否為 OK（狀態碼 200-299）
+          if (response.ok) {
+            console.log(`GLB 檔案可訪問。下載時間：${downloadTime.toFixed(2)} 毫秒`);
+          } else {
+            console.log(`GLB 檔案不可訪問。狀態碼：${response.status}`);
+          }
+        } catch (error) {
+          // 如果發生 CORS 錯誤或其他錯誤
+          console.error('獲取 GLB 檔案時發生錯誤：', error);
+          console.log('很可能是該檔案被 CORS 擋住。');
+        }
+      }
+    
+      // 呼叫函數
+      checkGLBStatus();
+    </script>
+    
   
     <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" arkit="detectionMode: plane;">
       <a-camera gps-camera='simulateLatitude: 22.10001; simulateLongitude: 120.10001' rotation-reader> </a-camera>
       <a-assets>
-        <a-asset-item id="Animals" src="assets/models/glb/Animals/Animal_1_1_7min.glb"></a-asset-item>
-        <a-asset-item id="Confetti" src="assets/models/glb/Confetti_Only.glb"></a-asset-item>
-        <a-asset-item id="Weapon" src="assets/models/glb/Weapon/Weapon_2_2_1_1min53sec.glb"></a-asset-item>
-        <a-asset-item id="Butterfly" src="assets/models/glb/Butterfly/BUTTERFLY_LOOP_01.glb"></a-asset-item>
+        <a-asset-item id="Animals" src="../assets/models/glb/Animals/Animal_1_1_7min.glb"></a-asset-item>
+        <a-asset-item id="Confetti" src="https://mytestbox.s3.ap-northeast-1.amazonaws.com/Test.glb"></a-asset-item>
+        <a-asset-item id="Weapon" src="../assets/models/glb/Weapon/Weapon_2_2_1_1min53sec.glb"></a-asset-item>
+        <a-asset-item id="Butterfly" src="../assets/models/glb/Butterfly/BUTTERFLY_LOOP_01.glb"></a-asset-item>
       </a-assets>
         <a-entity 
           position="0 0 0"
@@ -69,7 +99,7 @@
           position="0 0 0"
           animation-mixer="clip: *; loop: repeat;"
           gltf-model="#Confetti" 
-          scale="1 1 1"
+          scale="5 5 5"
           gps-entity-place="latitude: 22.20001; longitude: 120.20001;">
         </a-entity>
         <a-entity 
