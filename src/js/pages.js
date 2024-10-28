@@ -1,5 +1,6 @@
 const pg = document.getElementById('pages');
 const pg01logo = document.getElementById('pages-01-logo');
+const pg01bt = document.getElementById('pages-01-button');
 const pg02bt = document.getElementById('pages-02-button');
 const pg03bt = document.getElementById('pages-03-button');
 const pginfobg = document.getElementById('pages-info'); // 更新為新的頁面資訊背景
@@ -21,13 +22,6 @@ setTimeout(() => {
         pg01logo.style.display = 'none';
         
         // 顯示 pages-02-button，並移除 hidden 類
-        pg02bt.style.display = 'block';
-        pg02bt.style.left = '5%';
-        pg02bt.style.bottom = '5%';
-        pg02bt.style.width = '140px';
-        pg02bt.style.height = '55px';
-        pg02bt.style.borderRadius = '45px 45px 45px 45px';
-        pg02bt.classList.remove('hidden');
 
         pginfobg.style.display = 'block'; // 顯示 pages-info
 
@@ -38,6 +32,16 @@ setTimeout(() => {
         
     }, 500); // 與 CSS 中的 transition 時間保持一致
 }, 5000);
+
+pg01bt.addEventListener('click', (event) => {
+    event.preventDefault();
+    currentPage++; // 切換到下一頁
+
+    // 當頁數超過 4 時，重置為第 1 頁
+    if (currentPage > 4) currentPage = 1;
+
+    loadContent(currentPage); // 載入新頁面的內容
+});
 
 pg02bt.addEventListener('click', (event) => {
     event.preventDefault();
@@ -131,6 +135,34 @@ async function loadContent(pageNumber) {
             document.getElementById('description').innerHTML = content.description.join('</br>');
             
             // 根據當前頁碼的不同，隱藏或顯示相應的資訊背景
+            if (currentPage === 1) {
+                pg01bt.classList.add('hidden');
+                pg01bt.style.display = 'none';
+
+                pg01bt.style.display = 'block';
+                pg01bt.style.left = 'unset';
+                pg01bt.style.right = 0;
+                pg01bt.style.bottom = '5%';
+                pg01bt.style.width = '140px';
+                pg01bt.style.height = '55px';
+                pg01bt.style.fontSize = '20px';
+                pg01bt.style.borderRadius = '45px 0 0 45px';
+                pg01bt.classList.remove('hidden');
+                pg02bt.classList.add('hidden');
+                pg03bt.classList.add('hidden');   
+                pginfobg.classList.add('hidden');
+
+                pg.style.zIndex = '99';
+            } else {
+                pginfobg.classList.remove('pages-03'); // 移除 pages-03 類               
+                pginfobg.classList.remove('hidden');
+                pg01bt.classList.add('hidden');
+                pg02bt.classList.remove('hidden');
+                pg03bt.classList.remove('hidden');        
+                
+                pg.style.zIndex = '101';
+            }
+
             if (currentPage === 4) {
                 pginfobg.classList.add('hidden'); 
                 pginfobg.classList.add('pages-03'); // 添加 pages-03 類
@@ -161,8 +193,17 @@ async function loadContent(pageNumber) {
 
             // 根據 currentPage 顯示或隱藏 phonecon
             if (currentPage === 2 || currentPage === 3) {
+                pg02bt.style.display = 'block';
+                pg02bt.style.left = '5%';
+                pg02bt.style.bottom = '5%';
+                pg02bt.style.width = '140px';
+                pg02bt.style.height = '55px';
+                pg02bt.style.borderRadius = '45px 45px 45px 45px';
+                pg02bt.classList.remove('hidden');
+
                 phonecon.style.display = 'block'; // 顯示 phonecon
             } else {
+                pg02bt.classList.add('hidden');
                 phonecon.style.display = 'none'; // 隱藏 phonecon
             }
         } else {

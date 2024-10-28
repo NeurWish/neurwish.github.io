@@ -48,6 +48,7 @@
 }
 
 .pages-button {
+  pointer-events: auto;
   border:0 solid;
   border-radius: 45px 0 0 45px;
   padding: 0 25px;
@@ -90,6 +91,16 @@
   border-color: #5858e9;
   background-color: #1d1d21;
   position: absolute;
+}
+
+.pages-01-button {
+  border-color: #0000;
+  background-color: #0000;
+  background-image: url('../../assets/imgs/pages/01/01-button.svg');
+  background-repeat: no-repeat;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-style: solid;
 }
 
 .pages-03 {
