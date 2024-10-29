@@ -26,22 +26,36 @@ document.addEventListener("DOMContentLoaded", async function () {
         return localTime - utcOffsetMilliseconds; // 本地時間換算為 UTC 毫秒
     }
 
-    // 初始化每個 GLB 動畫的持續時間（假設為 30 fps）
     async function initializeDurations() {
-        for (let assetId of assets) {
-            const model = document.querySelector(assetId);
-            const mixer = model.components['animation-mixer'];
-            if (mixer && mixer.clips && mixer.clips.length > 0) {
-                // 計算資源中每個動畫的持續時間
-                let totalDuration = 0;
-                mixer.clips.forEach(clip => {
-                    totalDuration += clip.duration * (1000 / 30); // 從幀轉換為毫秒
+        let totalDuration = 0;
+    
+        const promises = assets.map(assetId => {
+            return new Promise((resolve) => {
+                const model = document.querySelector(assetId);
+                model.addEventListener('model-loaded', () => {
+                    const mixer = model.components['animation-mixer'];
+                    console.log(mixer); // 確認 mixer 的內容
+                    if (mixer && mixer.clips && mixer.clips.length > 0) {
+                        let duration = 0;
+                        mixer.clips.forEach(clip => {
+                            console.log(`Animation ${clip.name}: ${clip.duration} seconds`); // 輸出動畫名稱和持續時間
+                            duration += clip.duration * 1000; // 每個 clip 持續時間轉換為毫秒
+                        });
+                        animationDurations.push(duration);
+                        totalDuration += duration; 
+                        console.log(`模型 ${model.id} 的動畫持續時間：${(duration / 1000).toFixed(2)} 秒`);
+                    } else {
+                        console.warn(`模型 ${model.id} 未檢測到動畫。`);
+                    }
+                    resolve(); // 當加載完成後解決承諾
                 });
-                animationDurations.push(totalDuration);
-            }
-        }
+            });
+        });
+    
+        await Promise.all(promises);
+        console.log(`所有 GLB 動畫的總持續時間：${(totalDuration / 1000).toFixed(2)} 秒`);
     }
-
+    
     // 順序播放動畫，並同步到整點
     async function playSequence() {
         currentTime = await fetchNetworkTime();
@@ -53,20 +67,27 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         // 計算距離整點的偏移並開始序列播放
         const offset = currentTime - startOfHour;
-        let totalDuration = 0;
 
         for (let i = 0; i < assets.length; i++) {
             const model = document.querySelector(assets[i]);
-            model.setAttribute('animation-mixer', { time: offset });
-            totalDuration += animationDurations[i];
-            await new Promise(resolve => setTimeout(resolve, animationDurations[i]));
-            model.setAttribute('visible', false); // 隱藏上一個模型
-            document.querySelector(assets[i + 1])?.setAttribute('visible', true); // 顯示下一個模型
+            model.setAttribute('animation-mixer', { time: offset }); // 設定動畫起始時間
+            model.setAttribute('visible', true); // 顯示當前模型
+
+            // 等待動畫播放結束
+            await new Promise(resolve => {
+                setTimeout(() => {
+                    model.setAttribute('visible', false); // 隱藏模型
+                    resolve();
+                }, animationDurations[i]);
+            });
+
+            // 計算下一個模型的動畫時間偏移
+            offset += animationDurations[i]; // 更新偏移量
         }
     }
 
     // 執行初始化並播放序列
     findSceneEntities();  // 自動搜尋 scene 元素
     await initializeDurations();
-    playSequence();
+    await playSequence();
 });
