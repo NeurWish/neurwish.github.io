@@ -23,9 +23,8 @@
           <div class="title" id="title"></div>
           <div class="description" id="description"></div>
           <div class="phone-con" id="phone-con"></div>
-          <div class="pages-point" id="pages-point"></div>
       </div>
-      <button class="pages-button hidden" id="pages-01-button">
+      <button class="pages-button" id="pages-01-button">
         <img src="../assets/imgs/pages/01/01-button.svg"/>
       </button>
       <button class="pages-button hidden" id="pages-02-button">
@@ -49,6 +48,7 @@
     
     <script src="../src/js/pages.js"></script>
     <script src="../src/js/main-ar.js"></script>
+    <script src="../src/js/anim.js"></script>
     <script>
       // 檢查 CORS 和下載時間的函數
       async function checkGLBStatus() {
@@ -89,6 +89,7 @@
         <a-asset-item id="Butterfly" src="../assets/models/glb/Butterfly/BUTTERFLY_LOOP_01.glb"></a-asset-item>
       </a-assets>
         <a-entity 
+          id="scene01"
           position="0 0 0"
           animation-mixer="clip: *; loop: repeat;"
           gltf-model="#Animals" 
@@ -96,25 +97,28 @@
           gps-entity-place="latitude: 22.10001; longitude: 120.10001;">
         </a-entity>
         <a-entity 
+          id="scene02"
           position="0 0 0"
           animation-mixer="clip: *; loop: repeat;"
           gltf-model="#Confetti" 
           scale="5 5 5"
-          gps-entity-place="latitude: 22.20001; longitude: 120.20001;">
+          gps-entity-place="latitude: 22.10001; longitude: 120.10001;">
         </a-entity>
         <a-entity 
+          id="scene03"
           position="0 0 0"
           animation-mixer="clip: *; loop: repeat;"
           gltf-model="#Weapon" 
           scale="1 1 1"
-          gps-entity-place="latitude: 22.30001; longitude: 120.30001;">
+          gps-entity-place="latitude: 22.10001; longitude: 120.10001;">
         </a-entity> 
         <a-entity 
+          id="scene04"
           position="0 0 0"
           animation-mixer="clip: *; loop: repeat;"
           gltf-model="#Butterfly" 
           scale="1 1 1"
-          gps-entity-place="latitude: 22.40001; longitude: 120.40001;">
+          gps-entity-place="latitude: 22.10001; longitude: 120.10001;">
         </a-entity>
       </a-scene>
   </body>

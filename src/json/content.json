@@ -3,15 +3,19 @@
     "title": "使用說明",
     "description": [
       "歡迎來到《永生動物園》AR互動體驗。",
-      "為獲得完整體驗，本次演出之專屬「AR體驗」，需取用您手機的「網頁瀏覽器」並同意使用「相機」與「定位」。",
-      "演出過程中，需持續開啟瀏覽器，若不慎關閉，請您再次連線開啟，這將幫助我們為您提供更好的視覺效果，沉浸《永生動物園》超乎現實的奇幻世界。",
+      "",
+      "為獲得完整體驗，本次演出之專屬「AR體驗」，需取用您手機的「網頁瀏覽器」並同意使用「相機」與「定位」。演出過程中，需持續開啟瀏覽器，若不慎關閉，請您再次連線開啟，這將幫助我們為您提供更好的視覺效果，沉浸《永生動物園》超乎現實的奇幻世界。",
+      "",
       "感謝您的理解與支持！",
       "_______________________________",
       "",
       "Welcome to the AR interactive experience of \"The Eternal Zoo\"",
+      "",
       "In order to bring you a more exciting experience, mobile AR interaction requires using your mobile phone's browser and agreeing to allow the use of the camera lens and positioning system.",
       "In addition, this experience requires \"always open the browser and cannot close it.\"",
-      "This will help us provide you with great AR effects and more immersion in the fantasy world of the Eternal Zoo."
+      "This will help us provide you with great AR effects and more immersion in the fantasy world of the Eternal Zoo.",
+      "",
+      "Thank you for your understanding and support!"
     ]
   },
   "page02_02": {
@@ -33,18 +37,27 @@
     ]
   },
   "page03_01": {
-    "title": "使用說明",
+    "title": "體驗WebAR的簡易步驟",
     "description": [
-      "體驗WebAR的簡易步驟",
+      "1. 授權權限：",
+      "請允許使用您的相機與定位功能，以確保WebAR正常運作。",
       "",
-      "1. 授權權限：請允許使用您的相機與定位功能，以確保WebAR正常運作。",
-      "2. 保持頁面開啟：體驗期間，請保持此頁面開啟以確保流暢互動。",
-      "3. 重新連接：若不慎關閉頁面，只需重新開啟即可繼續體驗",
-      "_______________________________",
+      "2. 保持頁面開啟：",
+      "體驗期間，請保持此頁面開啟以確保流暢互動。",
       "",
-      "1. Grant Permissions: Allow access to your camera and location for the WebAR to function properly.",
-      "2. Keep Browser Open: For a seamless experience, keep this page open during the performance.",
-      "3. Reconnect if Needed: If you close the page accidentally, simply reopen it to continue the AR interaction."
+      "3. 重新連接：",
+      "若不慎關閉頁面，只需重新開啟即可繼續體驗"
+    ],
+    "title_en": "How to Enjoy the WebAR Experience",
+    "description_en": [
+      "1. Grant Permissions:",
+      "Allow access to your camera and location for the WebAR to function properly.",
+      "",
+      "2. Keep Browser Open:",
+      "For a seamless experience, keep this page open during the performance.",
+      "",
+      "3. Reconnect if Needed:",
+      "If you close the page accidentally, simply reopen it to continue the AR interaction."
     ]
   }
 }
