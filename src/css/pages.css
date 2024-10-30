@@ -245,7 +245,7 @@
   background: none; 
   border: none; 
   cursor: pointer;
-  z-index: 101;
+  z-index: 100;
 }
 
 .nextSceneBtn {
@@ -259,7 +259,7 @@
   background: none; 
   border: none; 
   cursor: pointer;
-  z-index: 101;
+  z-index: 100;
 }
 
 /* Scroll Custom */
