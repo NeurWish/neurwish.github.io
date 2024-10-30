@@ -235,6 +235,7 @@
 }
 
 .prevSceneBtn {
+  pointer-events: auto;
   position: absolute; 
   top: 0; 
   bottom: 0; 
@@ -249,6 +250,7 @@
 }
 
 .nextSceneBtn {
+  pointer-events: auto;
   position: absolute; 
   top: 0; 
   bottom: 0; 
