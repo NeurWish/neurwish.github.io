@@ -260,7 +260,7 @@
   height: 100%; 
   background: none; 
   border: none; 
-  /* cursor: pointer; */
+  cursor: pointer;
   z-index: 100;
 }
 
