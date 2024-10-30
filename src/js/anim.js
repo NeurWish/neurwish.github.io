@@ -1,101 +1,177 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const assets = [];
+    const scenes = document.querySelectorAll("a-entity[id^='scene']");
     const animationDurations = [];
+    let currentSceneIndex = 0;
+    let animationTimer = null;
+    let hourCheckTimer = null; // 用于检查每小时整点的计时器
+    let lastHourlyPlayTime = null; // 记录上次播放的时间
 
-    // 自動搜尋並新增具有 scene 前綴的 <a-entity>
-    function findSceneEntities() {
-        // 查找所有 ID 以 "scene" 開頭的 <a-entity>
-        const sceneEntities = document.querySelectorAll("a-entity[id^='scene']");
-        sceneEntities.forEach(entity => assets.push(`#${entity.id}`));
-        console.log(`場景總數：${sceneEntities.length} 個`); // 顯示場景總數
+    // 获取模型的数量
+    const assetItems = document.querySelectorAll("a-asset-item");
+    const models = [];
+
+    // 根据 <a-asset-item> 的数量生成对应的 <a-entity>
+    function generateEntities() {
+        assetItems.forEach((item, index) => {
+            const modelId = `model${String(index + 1).padStart(2, '0')}`;
+            const sceneId = `scene${String(index + 1).padStart(2, '0')}`;
+
+            // 检查场景是否已经存在
+            if (!document.getElementById(sceneId)) {
+                const entity = document.createElement("a-entity");
+                entity.setAttribute("id", sceneId);
+                entity.setAttribute("position", "0 0 0");
+                entity.setAttribute("gltf-model", `#${modelId}`); // 确保这里的 ID 正确
+                entity.setAttribute("scale", "1 1 1");
+                entity.setAttribute("gps-entity-place", "latitude: 22.10001; longitude: 120.10001;");
+                entity.setAttribute("visible", "false");
+                document.querySelector("a-scene").appendChild(entity);
+                models.push(entity);
+            } else {
+                console.log(`场景 ${sceneId} 已经存在，跳过生成。`);
+            }
+        });
     }
 
-    // 初始化動畫持續時間
+    // 显示网络时区的当前时间及时区名称
+    function logCurrentNetworkTime() {
+        const currentDate = new Date();
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const formattedTime = new Intl.DateTimeFormat('default', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZoneName: 'short'
+        }).format(currentDate);
+
+        console.log(`现在的网络时区时间：${formattedTime}，时区：${timeZone}`);
+    }
+
+    // 初始化场景的可见性与动画
+    models.forEach(scene => {
+        scene.setAttribute("visible", "false");
+        scene.removeAttribute("animation-mixer");
+    });
+
     async function initializeDurations() {
-        const promises = assets.map(assetId => {
+        const promises = Array.from(models).map(scene => {
             return new Promise((resolve) => {
-                const model = document.querySelector(assetId);
-                model.addEventListener('model-loaded', () => {
-                    console.log(`模型 ${model.id} 加載完成`); // 顯示模型加載完成
-                    const object3D = model.getObject3D('mesh');
+                scene.addEventListener('model-loaded', () => {
+                    console.log(`模型 ${scene.id} 加载完成`);
+                    const object3D = scene.getObject3D('mesh');
                     if (object3D && object3D.animations && object3D.animations.length > 0) {
                         let duration = 0;
-                        // 計算每個動畫片段的持續時間並加總
                         object3D.animations.forEach(clip => {
-                            console.log(`動畫 ${clip.name}：${clip.duration} 秒`); // 顯示動畫片段名稱與持續時間
-                            duration += clip.duration * 1000; // 將持續時間轉為毫秒
+                            console.log(`动画 ${clip.name}：${clip.duration} 秒`);
+                            duration += clip.duration * 1000;
                         });
                         animationDurations.push(duration);
-                        console.log(`模型 ${model.id} 的動畫持續時間：${(duration / 1000).toFixed(2)} 秒`); // 顯示模型總動畫持續時間
+                        console.log(`模型 ${scene.id} 的动画总持续时间：${(duration / 1000).toFixed(2)} 秒`);
                     } else {
-                        console.warn(`模型 ${model.id} 未檢測到動畫。`); // 若無動畫，顯示警告訊息
+                        console.warn(`模型 ${scene.id} 未检测到动画。`);
                     }
                     resolve();
+                });
+
+                // 如果加载失败，添加错误处理
+                scene.addEventListener('model-error', () => {
+                    console.error(`模型 ${scene.id} 加载失败。`);
+                    resolve(); // 确保 Promise 总是解决
                 });
             });
         });
         await Promise.all(promises);
     }
 
-    // 按順序播放動畫（單一場景同時播放）
-    async function playSequence() {
-    console.log("開始播放動畫序列"); // 添加日誌顯示開始播放
-    const totalDuration = animationDurations.reduce((a, b) => a + b, 0); // 計算所有動畫的總持續時間
-    const currentTime = Date.now(); // 取得當前的裝置時間
-    const localDate = new Date(currentTime);
-    localDate.setMinutes(0, 0, 0); // 設定為整點時間
-    const startOfHour = localDate.getTime(); // 獲取整點時間
-
-    // 計算每個場景的播放時間範圍
-    for (let i = 0; i < assets.length; i++) {
-        const model = document.querySelector(assets[i]);
-        const startTime = startOfHour + animationDurations.slice(0, i).reduce((a, b) => a + b, 0); // 計算當前動畫的起始時間
-        const endTime = startTime + animationDurations[i]; // 計算當前動畫的結束時間
-        
-        console.log(`動畫 ${model.id} 起始時間：${new Date(startTime).toLocaleTimeString()}`); // 加入起始時間的日誌
-        console.log(`動畫 ${model.id} 結束時間：${new Date(endTime).toLocaleTimeString()}`); // 加入結束時間的日誌
-
-        // 設置動畫混合器的時間並設為可見
-        model.setAttribute('animation-mixer', `clip: *; time: 0; loop: repeat`);
-        model.setAttribute('visible', true);
-        console.log(`播放動畫：${model.id}，可見性：${model.getAttribute('visible')}`); // 顯示目前播放的動畫和可見性
-
-        // 設定播放動畫的時間範圍
-        const currentTimeInInterval = Date.now();
-        console.log(`當前時間：${new Date(currentTimeInInterval).toLocaleTimeString()}`); // 顯示當前時間
-        if (currentTimeInInterval >= startTime && currentTimeInInterval < endTime) {
-            const animationOffset = (currentTimeInInterval - startTime) / 1000; // 計算當前動畫的偏移時間
-            model.setAttribute('animation-mixer', `clip: *; time: ${animationOffset}; loop: repeat`);
-            console.log(`動畫 ${model.id} 偏移時間：${animationOffset.toFixed(2)} 秒`); // 顯示當前動畫的偏移時間
-        } else if (currentTimeInInterval >= endTime) {
-            model.setAttribute('animation-mixer', `clip: *; time: 0; loop: repeat`); // 如果超過結束時間，暫停動畫
-            model.setAttribute('visible', false); // 隱藏模型
-            console.log(`動畫 ${model.id} 已結束，隱藏模型。可見性：${model.getAttribute('visible')}`); // 顯示模型隱藏的訊息
-        }
-
-        // 等待動畫完成，然後隱藏模型
-        await new Promise(resolve => {
-            const timeout = endTime - currentTimeInInterval;
-            if (timeout > 0) {
-                setTimeout(() => {
-                    model.setAttribute('animation-mixer', `clip: *; time: 0; loop: repeat`); // 將動畫設為暫停
-                    model.setAttribute('visible', false); // 隱藏模型
-                    console.log(`動畫 ${model.id} 被暫停並隱藏。可見性：${model.getAttribute('visible')}`); // 確保隱藏狀態被打印
-                    resolve();
-                }, timeout);
-            } else {
-                resolve();
-            }
-        });
+    function activateScene(scene) {
+        console.log(`尝试启动 ${scene.id} 的动画`);
+        scene.setAttribute("visible", "true");
+        scene.setAttribute("animation-mixer", ""); // 确保这里可以正确赋值
+        console.log(`启动 ${scene.id} 的动画`);
+        logCurrentNetworkTime();
     }
 
-    // 計算下一小時的倒數計時，重複播放動畫
-    const timeToNextHour = 3600000 - (currentTime - startOfHour);
-    setTimeout(playSequence, timeToNextHour);
-}
+    function deactivateScene(scene) {
+        scene.setAttribute("visible", "false");
+        scene.removeAttribute("animation-mixer");
+        console.log(`停止 ${scene.id} 的动画`);
+    }
 
+    async function playSceneByIndex(index) {
+        if (index >= 0 && index < models.length) {
+            clearTimeout(animationTimer);
+            const currentScene = models[currentSceneIndex];
+            deactivateScene(currentScene);
 
-    findSceneEntities(); // 自動搜尋場景實體
-    await initializeDurations(); // 初始化動畫持續時間
-    await playSequence(); // 開始播放動畫序列
+            currentSceneIndex = index;
+            const nextScene = models[currentSceneIndex];
+
+            // 确保模型已加载
+            if (nextScene) {
+                await new Promise((resolve) => {
+                    nextScene.addEventListener('model-loaded', resolve, { once: true });
+                });
+
+                activateScene(nextScene);
+                const duration = animationDurations[currentSceneIndex] || 5000;
+                animationTimer = setTimeout(() => {
+                    deactivateScene(nextScene);
+                    playNextScene(); // 自动播放下一个场景
+                }, duration);
+            } else {
+                console.error(`模型索引 ${currentSceneIndex} 不存在！`);
+            }
+        } else {
+            console.error(`索引 ${index} 超出范围！`);
+        }
+    }
+
+    function playNextScene() {
+        if (currentSceneIndex < models.length - 1) {
+            playSceneByIndex(currentSceneIndex + 1);
+        } else {
+            console.log("所有场景动画已播放完成。");
+        }
+    }
+
+    function checkHourlyPlay() {
+        const now = new Date();
+        if (now.getMinutes() === 0 && now.getSeconds() === 0) {
+            if (!lastHourlyPlayTime || now - lastHourlyPlayTime > 60000) { // 确保每小时只播放一次
+                console.log(`到达整点 ${now.getHours()}:00，自动开始播放场景`);
+                lastHourlyPlayTime = now;
+
+                if (!animationTimer) {
+                    console.log("准备播放场景...");
+                    playSceneByIndex(0);
+                } else {
+                    console.log("动画正在播放中，无法自动开始播放");
+                }
+            } else {
+                console.log("已在这个整点播放过动画，跳过播放。");
+            }
+        }
+    }
+
+    // 生成场景实体
+    generateEntities();
+
+    await initializeDurations();
+
+    // 设置每秒检查是否到达整点
+    hourCheckTimer = setInterval(checkHourlyPlay, 1000);
+
+    // 手动切换场景按钮
+    document.getElementById("prevSceneBtn").addEventListener("click", () => {
+        if (currentSceneIndex > 0) {
+            playSceneByIndex(currentSceneIndex - 1);
+        }
+    });
+
+    document.getElementById("nextSceneBtn").addEventListener("click", () => {
+        if (currentSceneIndex < models.length - 1) {
+            playSceneByIndex(currentSceneIndex + 1);
+        }
+    });
 });

@@ -56,16 +56,24 @@
     <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;" arkit="detectionMode: plane;">
       <a-camera gps-camera='simulateLatitude: 22.10001; simulateLongitude: 120.10001' rotation-reader> </a-camera>
       <a-assets>
-        <a-asset-item id="Animals" src="https://zooglb.s3.us-east-1.amazonaws.com/animal_1_1_7min.glb"></a-asset-item>
-        <a-asset-item id="Confetti" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_1_confetti_339sec.glb"></a-asset-item>
-        <a-asset-item id="Weapon" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_3_1min53sec.glb"></a-asset-item>
-        <a-asset-item id="Butterfly" src="https://zooglb.s3.us-east-1.amazonaws.com/butterfly_3_0_fz_14s.glb"></a-asset-item>
+        <a-asset-item id="model01" src="https://zooglb.s3.us-east-1.amazonaws.com/animal_1_1_7min.glb"></a-asset-item>
+        <a-asset-item id="model02" src="https://zooglb.s3.us-east-1.amazonaws.com/animal_1_2_19sec.glb"></a-asset-item>
+        <a-asset-item id="model03" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_1_confetti_339sec.glb"></a-asset-item>
+        <a-asset-item id="model04" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_2_empty_5sec.glb"></a-asset-item>
+        <a-asset-item id="model05" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_3_1min53sec.glb"></a-asset-item>
+        <a-asset-item id="model06" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_4_5sec.glb"></a-asset-item>
+        <a-asset-item id="model07" src="https://zooglb.s3.us-east-1.amazonaws.com/weapon_2_5_1min53sec.glb"></a-asset-item>
+        <a-asset-item id="model08" src="https://zooglb.s3.us-east-1.amazonaws.com/butterfly_3_0_fz_14s.glb"></a-asset-item>
+        <a-asset-item id="model09" src="https://zooglb.s3.us-east-1.amazonaws.com/butterfly_3_1_fly_4m34s.glb"></a-asset-item>
+        <a-asset-item id="model10" src="https://zooglb.s3.us-east-1.amazonaws.com/butterfly_3_2_empty_4sec.glb"></a-asset-item>
+        <a-asset-item id="model11" src="https://zooglb.s3.us-east-1.amazonaws.com/butterfly_3_3_fz_14s.glb"></a-asset-item>
+        <a-asset-item id="model12" src="https://zooglb.s3.us-east-1.amazonaws.com/butterfly_3_4_fall_4m48s.glb"></a-asset-item>
       </a-assets>
       <a-entity 
       id="scene01"
       position="0 0 0"
       animation-mixer="clip: *; loop: repeat;"
-      gltf-model="#Animals" 
+      gltf-model="#model01" 
       scale="1 1 1"
       gps-entity-place="latitude: 22.10001; longitude: 120.10001;">
     </a-entity>
@@ -73,7 +81,7 @@
       id="scene02"
       position="0 0 0"
       animation-mixer="clip: *; loop: repeat;"
-      gltf-model="#Confetti" 
+      gltf-model="#model02" 
       scale="1 1 1"
       gps-entity-place="latitude: 22.20001; longitude: 120.20001;">
     </a-entity>
@@ -81,7 +89,7 @@
       id="scene03"
       position="0 0 0"
       animation-mixer="clip: *; loop: repeat;"
-      gltf-model="#Weapon" 
+      gltf-model="#model03" 
       scale="5 5 5"
       gps-entity-place="latitude: 22.30001; longitude: 120.30001;">
     </a-entity> 
@@ -89,7 +97,7 @@
       id="scene04"
       position="0 0 0"
       animation-mixer="clip: *; loop: repeat;"
-      gltf-model="#Butterfly" 
+      gltf-model="#model04" 
       scale="1 1 1"
       gps-entity-place="latitude: 22.40001; longitude: 120.40001;">
     </a-entity>
