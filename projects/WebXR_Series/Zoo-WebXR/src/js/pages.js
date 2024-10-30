@@ -68,7 +68,7 @@ pg03bt.addEventListener('click', (event) => {
         newPg03btn_img.className = 'back-button-image';
 
         const img = document.createElement('img');
-        img.src = '../../assets/imgs/pages/03/03-cover/03-back-button.svg';
+        img.src = '../Zoo-WebXR/assets/imgs/pages/03/03-cover/03-back-button.svg';
         img.alt = '返回按鈕';
         newPg03btn_img.appendChild(img);
         pg03bt.appendChild(newPg03btn_img);
@@ -78,16 +78,20 @@ pg03bt.addEventListener('click', (event) => {
         logoDiv.className = 'pages-03-logo';
 
         const logoImg = document.createElement('img');
-        logoImg.src = '../../assets/imgs/pages/03/03/03-Logo.png';
+        logoImg.src = '../Zoo-WebXR/assets/imgs/pages/03/03/03-Logo.png';
         logoImg.alt = '第 03 頁標誌';
         logoDiv.appendChild(logoImg);
 
         pg03bt.appendChild(logoDiv);
+
+        pg.style.pointerEvents = 'all';
         
     } else {
         // 隱藏資訊背景，移除體驗說明文字
         pginfobg.classList.add('hidden');
         pg03bt.classList.remove('back-button');
+
+        pg.style.pointerEvents = 'none';
 
         // 創建 "體驗說明" div，如果尚未存在
         let pg03btn_word = document.getElementById('pg03btn-word');
@@ -116,9 +120,9 @@ pg03bt.addEventListener('click', (event) => {
 
 async function loadContent(pageNumber) {
     try {
-        const response = await fetch('../../src/json/content.json');
+        const response = await fetch('../Zoo-WebXR/src/json/content.json');
         const data = await response.json();
-        
+
         // 動態生成頁面鍵名，如 "page02_01" 或 "page03_01"
         const pageKey = (pageNumber === 4) ? `page03_01` : `page02_0${pageNumber}`;
         const content = data[pageKey];
@@ -147,7 +151,7 @@ async function loadContent(pageNumber) {
             } else {
                 pginfobg.classList.remove('pages-03'); // 移除 pages-03 類               
                 pginfobg.classList.remove('hidden');
-                pginfobg.style.backgroundImage = "url('../../assets/imgs/pages/01/01-bg.png')";
+                pginfobg.style.backgroundImage = "url('../Zoo-WebXR/assets/imgs/pages/01/01-bg.png')";
 
                 pg01bt.style.display = 'none';
                 pg02bt.classList.add('hidden');
@@ -166,8 +170,8 @@ if (currentPage === 2 || currentPage === 3) {
         
         const dotImage = document.createElement('img');
         dotImage.src = currentPage === 2 
-            ? '../../assets/imgs/pages/02/02-2.3/page-02-dot-01.png'
-            : '../../assets/imgs/pages/02/02-2.3/page-02-dot-02.png';
+            ? '../Zoo-WebXR/assets/imgs/pages/02/02-2.3/page-02-dot-01.png'
+            : '../Zoo-WebXR/assets/imgs/pages/02/02-2.3/page-02-dot-02.png';
         
         dotContainer.className = currentPage === 2 ? 'pages-02-dot-01' : 'pages-02-dot-02';
         dotContainer.appendChild(dotImage);
@@ -175,8 +179,8 @@ if (currentPage === 2 || currentPage === 3) {
     } else {
         dotContainer.className = currentPage === 2 ? 'pages-02-dot-01' : 'pages-02-dot-02';
         dotContainer.querySelector('img').src = currentPage === 2 
-            ? '../../assets/imgs/pages/02/02-2.3/page-02-dot-01.png'
-            : '../../assets/imgs/pages/02/02-2.3/page-02-dot-02.png';
+            ? '../Zoo-WebXR/assets/imgs/pages/02/02-2.3/page-02-dot-01.png'
+            : '../Zoo-WebXR/assets/imgs/pages/02/02-2.3/page-02-dot-02.png';
     }
 
     pg02bt.classList.remove('hidden');
