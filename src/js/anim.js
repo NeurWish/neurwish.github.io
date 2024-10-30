@@ -104,13 +104,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     // 初始化播放時不進行自動播放
     // playSceneByIndex(currentSceneIndex);
 
-    document.getElementById("prevSceneBtn").addEventListener("click", () => {
+    document.getElementById("prevSceneBtn").addEventListener("click", (event) => {
+        event.preventDefault();
         if (currentSceneIndex > 0) {
             playSceneByIndex(currentSceneIndex - 1);
         }
     });
 
-    document.getElementById("nextSceneBtn").addEventListener("click", () => {
+    document.getElementById("nextSceneBtn").addEventListener("click", (event) => {
+        event.preventDefault();
         if (currentSceneIndex < scenes.length - 1) {
             playSceneByIndex(currentSceneIndex + 1);
         }
