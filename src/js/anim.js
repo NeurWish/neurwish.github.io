@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const animationDurations = [];
     let currentSceneIndex = 0;
     let animationTimer = null;
-    let hourCheckTimer = null; // 用於檢查每小時整點的計時器
+    let hourCheckTimer = null;
 
-    // 顯示網路時區的當前時間及時區名稱
     function logCurrentNetworkTime() {
         const currentDate = new Date();
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             hour12: false,
             timeZoneName: 'short'
         }).format(currentDate);
-
         console.log(`現在的網路時區時間：${formattedTime}，時區：${timeZone}`);
     }
 
@@ -90,17 +88,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     function checkHourlyPlay() {
         const now = new Date();
-        if (now.getMinutes() === 0 && now.getSeconds() === 0) {
-            console.log(`到達整點 ${now.getHours()}:30，自動開始播放場景`);
+        // 檢查當前分鐘是否為 0 或 30
+        if ((now.getMinutes() === 0 || now.getMinutes() === 30) && now.getSeconds() === 0) {
+            console.log(`到達整點 ${now.getHours()}，自動開始播放場景`);
             playSceneByIndex(0);
         }
     }
+    
 
     await initializeDurations();
-    playSceneByIndex(currentSceneIndex);
 
     // 設置每秒檢查是否到達整點
     hourCheckTimer = setInterval(checkHourlyPlay, 1000);
+
+    // 初始化播放時不進行自動播放
+    // playSceneByIndex(currentSceneIndex);
 
     document.getElementById("prevSceneBtn").addEventListener("click", () => {
         if (currentSceneIndex > 0) {
