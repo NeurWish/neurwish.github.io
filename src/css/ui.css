@@ -110,18 +110,25 @@
   display: none;
 }
 
-#fade-overlay {
-  position: absolute;
+.fade-overlay {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  opacity: 0; /* 初始透明度為0，不顯示 */
-  z-index: 99; /* 確保遮罩在最上層 */
-  pointer-events: none; /* 防止遮罩影響其他操作 */
-  transition: opacity 1s ease-in-out; /* 添加漸變效果 */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 可以調整透明度和顏色 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease; /* 淡入淡出效果 */
+  z-index: 999; /* 確保在其他元素之上 */
 }
+
+.fade-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
 .loading-overlay {
   position: fixed;
@@ -145,4 +152,22 @@
   stroke-dasharray: 0 100;
   transition: stroke-dashoffset 0.3s;
   stroke-linecap: round; /* 使線條端點圓滑 */
+}
+
+#progressContainer {
+  pointer-events: none;
+  position: fixed; 
+  left: 0; 
+  right: 0;  
+  bottom: 0; 
+  width: 100%; 
+  height: 4px; 
+  background: #eeeeee00;
+}
+
+#progressBar {
+  pointer-events: none;
+  width: 0%; 
+  height: 100%; 
+  background: #90c6ff;
 }
