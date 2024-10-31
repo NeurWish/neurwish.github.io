@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const FPS = 30; // 設定影格率為30 FPS
     let currentSceneIndex = 0;
     let animationTimer = null;
-    let hourCheckTimer = null;
+    let progressTimer = null; // 用於進度條更新的計時器
+    let isAnimationStarted = false; // 用來判斷動畫是否已經啟動
 
     // 固定的場景切換時間（以秒為單位）
     const fixedDurations = [
@@ -77,7 +78,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
         await Promise.all(promises);
-        playSceneByIndex(currentSceneIndex);
     }
 
     function activateScene(scene) {
@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         scene.setAttribute("visible", "false");
         scene.removeAttribute("animation-mixer");
         clearTimeout(animationTimer); // 清除動畫計時器
+        clearInterval(progressTimer); // 清除進度條計時器
         console.log(`停止 ${scene.id} 的動畫`);
     }
 
@@ -108,10 +109,23 @@ document.addEventListener("DOMContentLoaded", async function () {
             const duration = fixedDurations[currentSceneIndex] * 1000; // 將秒轉換為毫秒
             console.log(`當前場景 ${currentSceneIndex} 的固定動畫總持續時間：${(duration / 1000).toFixed(2)} 秒`);
 
+            // 更新進度條
+            updateProgressBar(0); // 重置進度條
+
             animationTimer = setTimeout(() => {
                 deactivateScene(nextScene);
                 playNextScene(); 
             }, duration);
+
+            // 更新進度條的計時器
+            let elapsedTime = 0;
+            progressTimer = setInterval(() => {
+                elapsedTime += 1000 / FPS;
+                updateProgressBar(elapsedTime / duration);
+                if (elapsedTime >= duration) {
+                    clearInterval(progressTimer);
+                }
+            }, 1000 / FPS);
         }
     }
 
@@ -138,6 +152,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.body.appendChild(img);
     }
 
+    function updateProgressBar(progress) {
+        const progressBar = document.getElementById("progressBar");
+        progressBar.style.width = `${progress * 100}%`;
+    }
+
     await initializeDurations();
 
     document.getElementById("prevSceneBtn").addEventListener("click", (event) => {
@@ -153,4 +172,15 @@ document.addEventListener("DOMContentLoaded", async function () {
             playSceneByIndex(currentSceneIndex + 1);
         }
     });
+
+    // 監聽 bg-hidden class 的變更來啟動動畫
+    const pagesDiv = document.getElementById("pages");
+    const observer = new MutationObserver(() => {
+        if (pagesDiv.classList.contains("bg-hidden") && !isAnimationStarted) {
+            isAnimationStarted = true; // 設置為 true，防止重複觸發
+            playSceneByIndex(currentSceneIndex);
+        }
+    });
+    
+    observer.observe(pagesDiv, { attributes: true });
 });
