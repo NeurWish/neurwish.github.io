@@ -54,31 +54,52 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     async function initializeDurations() {
+        const totalScenes = scenes.length;
+        let loadedScenes = 0;
+    
+        // 顯示遮罩和進度圈，禁用操作
+        document.getElementById("loadingOverlay").style.display = "block";
+    
+        function updateCircleProgress(progress) {
+            const circle = document.querySelector(".progress-ring__circle");
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (progress * circumference);
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = offset;
+        }
+    
         const promises = Array.from(scenes).map((scene, index) => {
             return new Promise((resolve) => {
-                scene.addEventListener('model-loaded', () => {
+                scene.addEventListener("model-loaded", () => {
                     console.log(`模型 ${scene.id} 加載完成`);
-                    const object3D = scene.getObject3D('mesh');
-                    if (object3D && object3D.animations && object3D.animations.length > 0) {
-                        console.log(`模型 ${scene.id} 的動畫片段數量：${object3D.animations.length}`);
-                    } else {
-                        console.warn(`模型 ${scene.id} 未檢測到動畫。`);
+                    loadedScenes++;
+    
+                    // 更新進度
+                    const progress = loadedScenes / totalScenes;
+                    updateCircleProgress(progress);
+    
+                    // 如果所有場景載入完成，隱藏遮罩，允許操作
+                    if (loadedScenes === totalScenes) {
+                        document.getElementById("loadingOverlay").style.display = "none";
                     }
                     resolve();
                 });
-
+    
                 // 嘗試加載模型
-                scene.addEventListener('model-loading-error', () => {
+                scene.addEventListener("model-loading-error", () => {
                     console.error(`模型 ${scene.id} 加載失敗，正在重試...`);
                     setTimeout(() => {
-                        scene.emit('model-load'); // 觸發模型重新加載
+                        scene.emit("model-load"); // 觸發模型重新加載
                     }, 2000);
                 });
             });
         });
-
+    
         await Promise.all(promises);
     }
+    
+    
 
     function activateScene(scene) {
         scene.setAttribute("visible", "true");

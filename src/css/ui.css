@@ -122,3 +122,27 @@
   pointer-events: none; /* 防止遮罩影響其他操作 */
   transition: opacity 1s ease-in-out; /* 添加漸變效果 */
 }
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+  display: none; /* 預設隱藏，載入時顯示 */
+  z-index: 999; /* 確保遮罩層在最上方 */
+}
+
+.loading-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.progress-ring__circle {
+  stroke-dasharray: 0 100;
+  transition: stroke-dashoffset 0.3s;
+  stroke-linecap: round; /* 使線條端點圓滑 */
+}
