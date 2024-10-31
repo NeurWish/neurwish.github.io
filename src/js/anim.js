@@ -10,17 +10,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     // 固定的場景切換時間（以秒為單位）
     const fixedDurations = [
         420,  // scene01
-        20,    // scene02
-        20,    // scene03
-        370,  // scene04
-        10,  // scene05
+        19,    // scene02
+        339,    // scene03
+        5,  // scene04
+        113,  // scene05
         5,  // scene06
-        120,  // scene07
-        5,    // scene08
-        120,   // scene09
-        340,  // scene10
-        20,   // scene11
-        360   // scene12
+        113,  // scene07
+        14,    // scene08
+        274,   // scene09
+        4,  // scene10
+        14,   // scene11
+        288   // scene12
     ];
 
     function createEntity(modelId, index) {
@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const totalScenes = scenes.length;
         let loadedScenes = 0;
     
-        // 顯示遮罩和進度圈，禁用操作
         document.getElementById("loadingOverlay").style.display = "block";
     
         function updateCircleProgress(progress) {
@@ -75,22 +74,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                     console.log(`模型 ${scene.id} 加載完成`);
                     loadedScenes++;
     
-                    // 更新進度
                     const progress = loadedScenes / totalScenes;
                     updateCircleProgress(progress);
     
-                    // 如果所有場景載入完成，隱藏遮罩，允許操作
                     if (loadedScenes === totalScenes) {
                         document.getElementById("loadingOverlay").style.display = "none";
                     }
                     resolve();
                 });
     
-                // 嘗試加載模型
                 scene.addEventListener("model-loading-error", () => {
                     console.error(`模型 ${scene.id} 加載失敗，正在重試...`);
                     setTimeout(() => {
-                        scene.emit("model-load"); // 觸發模型重新加載
+                        scene.emit("model-load");
                     }, 2000);
                 });
             });
@@ -98,8 +94,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     
         await Promise.all(promises);
     }
-    
-    
 
     function activateScene(scene) {
         scene.setAttribute("visible", "true");
@@ -110,8 +104,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     function deactivateScene(scene) {
         scene.setAttribute("visible", "false");
         scene.removeAttribute("animation-mixer");
-        clearTimeout(animationTimer); // 清除動畫計時器
-        clearInterval(progressTimer); // 清除進度條計時器
+        clearTimeout(animationTimer);
+        clearInterval(progressTimer);
         console.log(`停止 ${scene.id} 的動畫`);
     }
 
@@ -127,18 +121,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             activateScene(nextScene);
 
-            const duration = fixedDurations[currentSceneIndex] * 1000; // 將秒轉換為毫秒
+            const duration = fixedDurations[currentSceneIndex] * 1000;
             console.log(`當前場景 ${currentSceneIndex} 的固定動畫總持續時間：${(duration / 1000).toFixed(2)} 秒`);
 
-            // 更新進度條
-            updateProgressBar(0); // 重置進度條
+            updateProgressBar(0);
 
             animationTimer = setTimeout(() => {
                 deactivateScene(nextScene);
                 playNextScene(); 
             }, duration);
 
-            // 更新進度條的計時器
             let elapsedTime = 0;
             progressTimer = setInterval(() => {
                 elapsedTime += 1000 / FPS;
@@ -194,14 +186,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     });
 
-    // 監聽 bg-hidden class 的變更來啟動動畫
-    const pagesDiv = document.getElementById("pages");
-    const observer = new MutationObserver(() => {
-        if (pagesDiv.classList.contains("bg-hidden") && !isAnimationStarted) {
-            isAnimationStarted = true; // 設置為 true，防止重複觸發
-            playSceneByIndex(currentSceneIndex);
+    // 每秒檢查一次當前時間，若到整點或半點，則自動播放
+    setInterval(() => {
+        const now = new Date();
+        if ((now.getMinutes() === 0 || now.getMinutes() === 30) && now.getSeconds() === 0 && !isAnimationStarted) {
+            console.log(`到達整點或半點，時間 ${now.getHours()}:${now.getMinutes()}，自動開始播放場景`);
+            isAnimationStarted = true;
+            playSceneByIndex(0);
         }
-    });
-    
-    observer.observe(pagesDiv, { attributes: true });
+    }, 1000);
 });
