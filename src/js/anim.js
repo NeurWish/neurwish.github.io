@@ -149,36 +149,38 @@ document.addEventListener("DOMContentLoaded", async function () {
     function showFadeOverlay() {
         fadeOverlay.classList.add("show");
     }
-
+    
     function hideFadeOverlay() {
         fadeOverlay.classList.remove("show");
     }
-
+    
+    // 在 playSceneByIndex 函數中，添加適當的延遲
     function playSceneByIndex(index) {
         if (index >= 0 && index < scenes.length) {
             clearTimeout(animationTimer);
             const currentScene = scenes[currentSceneIndex];
             deactivateScene(currentScene);
-
+    
             currentSceneIndex = index;
             const nextScene = scenes[currentSceneIndex];
+    
             showFadeOverlay(); // 顯示淡入效果
-
+    
             setTimeout(() => {
                 activateScene(nextScene);
                 hideFadeOverlay(); // 隱藏淡出效果
             }, 700); // 這裡的700是淡入的持續時間
-
+    
             const duration = fixedDurations[currentSceneIndex] * 1000;
             console.log(`當前場景 ${currentSceneIndex} 的固定動畫總持續時間：${(duration / 1000).toFixed(2)} 秒`);
-
+    
             updateProgressBar(0);
-
+    
             animationTimer = setTimeout(() => {
                 deactivateScene(nextScene);
                 playNextScene(); 
             }, duration);
-
+    
             let elapsedTime = 0;
             progressTimer = setInterval(() => {
                 elapsedTime += 1000 / FPS;
@@ -189,6 +191,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             }, 1000 / FPS);
         }
     }
+    
 
     function playNextScene() {
         if (currentSceneIndex < scenes.length - 1) {
