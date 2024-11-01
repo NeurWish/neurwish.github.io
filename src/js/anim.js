@@ -1,28 +1,21 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const animationDurations = [];
     const FPS = 30;
     let currentSceneIndex = 0;
     let animationTimer = null;
     let progressTimer = null;
     let isDraggingSlider = false;
-    let isScenePlaying = false; // 用來追蹤是否已播放場景
 
     const fixedDurations = [
-        420,  // scene01
-        19,   // scene02
-        339,  // scene03
-        5,    // scene04
-        113,  // scene05
-        5,    // scene06
-        113,  // scene07
-        14,   // scene08
-        274,  // scene09
-        4,    // scene10
-        14,   // scene11
-        288   // scene12
+        420, 19, 339, 5, 113, 5, 113, 14, 274, 4, 292, 10
     ];
 
-    
+    // 設定需要淡入淡出延遲的場景和無需淡入淡出的場景
+    const noFadeScenes = [1, 9, 10, 11, 12]; // 無需淡入淡出的場景
+    const extendedFadeScenes = {
+        8: 14000  // scene03 的黑畫面延遲 1.5 秒
+  
+    };
+
     function logCurrentNetworkTime() {
         const currentDate = new Date();
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -38,32 +31,32 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const progressContainer = document.getElementById("progressContainer");
     const progressBar = document.getElementById("progressBar");
-    
+
     function setProgress(progress) {
         progressBar.style.width = `${progress * 100}%`;
         console.log(`當前進度: ${(progress * 100).toFixed(2)}%`);
     }
-    
+
     progressContainer.addEventListener("mousedown", (event) => {
         isDraggingSlider = true;
         updateSlider(event);
         console.log("開始拖動滑動條");
     });
-    
+
     document.addEventListener("mousemove", (event) => {
         if (isDraggingSlider) {
             updateSlider(event);
             console.log("正在拖動滑動條");
         }
     });
-    
+
     document.addEventListener("mouseup", () => {
         if (isDraggingSlider) {
             isDraggingSlider = false;
             console.log("結束拖動滑動條");
         }
     });
-    
+
     function updateSlider(event) {
         const rect = progressContainer.getBoundingClientRect();
         const offsetX = event.clientX - rect.left;
@@ -101,9 +94,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     async function initializeDurations() {
         const totalScenes = scenes.length;
         let loadedScenes = 0;
-    
+
         document.getElementById("loadingOverlay").style.display = "block";
-    
+
         function updateCircleProgress(progress) {
             const circle = document.querySelector(".progress-ring__circle");
             const radius = circle.r.baseVal.value;
@@ -112,22 +105,22 @@ document.addEventListener("DOMContentLoaded", async function () {
             circle.style.strokeDasharray = `${circumference} ${circumference}`;
             circle.style.strokeDashoffset = offset;
         }
-    
+
         const promises = Array.from(scenes).map((scene, index) => {
             return new Promise((resolve) => {
                 scene.addEventListener("model-loaded", () => {
                     console.log(`模型 ${scene.id} 加載完成`);
                     loadedScenes++;
-    
+
                     const progress = loadedScenes / totalScenes;
                     updateCircleProgress(progress);
-    
+
                     if (loadedScenes === totalScenes) {
                         document.getElementById("loadingOverlay").style.display = "none";
                     }
                     resolve();
                 });
-    
+
                 scene.addEventListener("model-loading-error", () => {
                     console.error(`模型 ${scene.id} 加載失敗，正在重試...`);
                     setTimeout(() => {
@@ -136,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 });
             });
         });
-    
+
         await Promise.all(promises);
     }
 
@@ -159,11 +152,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     function showFadeOverlay() {
         fadeOverlay.classList.add("show");
     }
-    
+
     function hideFadeOverlay() {
         fadeOverlay.classList.remove("show");
     }
-    
+
     function playSceneByIndex(index) {
         if (index >= 0 && index < scenes.length) {
             clearTimeout(animationTimer);
@@ -173,45 +166,79 @@ document.addEventListener("DOMContentLoaded", async function () {
             currentSceneIndex = index;
             const nextScene = scenes[currentSceneIndex];
     
-            showFadeOverlay();
+            // 獲取動畫片段和幀數的驗證
+            if (currentSceneIndex === scenes.length - 1) {
+                const animationMixer = nextScene.components['animation-mixer'];
+                if (animationMixer) {
+                    const clips = animationMixer.clip; // 獲取動畫片段
+                    console.log(`場景 ${currentSceneIndex + 1} 的動畫片段:`, clips);
+                    // 檢查幀數
+                    const totalFrames = clips.reduce((total, clip) => total + clip.tracks[0].values.length, 0);
+                    console.log(`場景 ${currentSceneIndex + 1} 的總幀數: ${totalFrames}`);
+                    
+                    // 這裡您可以根據實際的幀數計算出持續時間
+                    const durationFromFrames = (totalFrames / FPS) * 1000;
+                    console.log(`根據幀數計算的持續時間: ${(durationFromFrames / 1000).toFixed(2)} 秒`);
+                } else {
+                    console.error(`場景 ${currentSceneIndex + 1} 沒有找到動畫片段`);
+                }
+            }
     
-            setTimeout(() => {
+            if (!noFadeScenes.includes(currentSceneIndex + 1)) {
+                showFadeOverlay();
+                
+                const fadeDuration = extendedFadeScenes[currentSceneIndex + 1] || 700;
+                
+                setTimeout(() => {
+                    activateScene(nextScene);
+                    hideFadeOverlay();
+                }, fadeDuration);
+            } else {
                 activateScene(nextScene);
-                hideFadeOverlay();
-            }, 700);
+            }
     
             const duration = fixedDurations[currentSceneIndex] * 1000;
             console.log(`當前場景 ${currentSceneIndex} 的固定動畫總持續時間：${(duration / 1000).toFixed(2)} 秒`);
     
             updateProgressBar(0);
     
+            let elapsedTime = 0;
+            let frameCount = 0;
+    
             animationTimer = setTimeout(() => {
                 deactivateScene(nextScene);
-                playNextScene(); 
+                playNextScene();
             }, duration);
     
-            let elapsedTime = 0;
             progressTimer = setInterval(() => {
                 elapsedTime += 1000 / FPS;
+                frameCount++;
                 updateProgressBar(elapsedTime / duration);
+                console.log(`場景 ${currentSceneIndex + 1}，幀數: ${frameCount}`);
+    
                 if (elapsedTime >= duration) {
                     clearInterval(progressTimer);
                 }
             }, 1000 / FPS);
-            return true; // 播放成功
+            return true;
         }
-        return false; // 播放失敗
+        return false;
     }
     
+
     function playNextScene() {
         if (currentSceneIndex < scenes.length - 1) {
             playSceneByIndex(currentSceneIndex + 1);
         } else {
             console.log("所有場景動畫已播放完成。");
-            showFullScreenImage(); 
+            
+            const lastDuration = 0.2 * 1000;
+    
+            // 在最後一個場景播放結束後顯示全屏圖片
+            setTimeout(showFullScreenImage, lastDuration);
         }
     }
-
+    
     function showFullScreenImage() {
         const img = document.createElement("img");
         img.src = "../assets/imgs/pages/04/04.png"; 
@@ -243,9 +270,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     hourCheckTimer = setInterval(checkHourlyPlay, 1000);
 
-    // 初始化播放時不進行自動播放
-    // playSceneByIndex(currentSceneIndex);
-
     document.getElementById("prevSceneBtn").addEventListener("click", (event) => {
         event.preventDefault();
         if (currentSceneIndex > 0) {
@@ -259,11 +283,4 @@ document.addEventListener("DOMContentLoaded", async function () {
             playSceneByIndex(currentSceneIndex + 1);
         }
     });
-
-    
-    setInterval(() => {
-        logCurrentNetworkTime();
-        checkHourlyPlay();
-    }, 10000);  // 每10秒檢查一次
-    
 });
