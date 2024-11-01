@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 
                 // 設定延遲時間
                 const delay = sceneDelays[currentSceneIndex + 1] || 0; // 使用矩陣獲取延遲
-    
+                
                 // 在延遲時間後啟動下一個場景
                 setTimeout(() => {
                     activateScene(nextScene);
@@ -222,8 +222,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             animationTimer = setTimeout(() => {
                 deactivateScene(nextScene);
                 playNextScene();
-            }, duration + (sceneDelays[currentSceneIndex + 1] || 0)); // 考慮延遲時間
-    
+            }, duration); // 只考慮動畫的持續時間
+        
             // 更新進度條的定時器
             progressTimer = setInterval(() => {
                 elapsedTime += 1000 / FPS;
@@ -240,6 +240,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         return false;
     }
+    
 
 
     function playNextScene() {
