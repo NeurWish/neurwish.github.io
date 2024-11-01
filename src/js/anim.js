@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // 新增矩陣以指定場景切換的延遲
     const sceneDelays = {
-        8: 14000
+        7: 14000
     };
     
      const progressContainer = document.getElementById("progressContainer");
