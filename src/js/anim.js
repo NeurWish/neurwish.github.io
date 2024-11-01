@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // 設定需要淡入淡出延遲的場景和無需淡入淡出的場景
     const noFadeScenes = [1, 9, 10, 11, 12]; // 無需淡入淡出的場景
     const extendedFadeScenes = {
-        8: 14000  // scene03 的黑畫面延遲 1.5 秒
+        8: 14000  // scene08 的黑畫面延遲 14 秒
   
     };
 
