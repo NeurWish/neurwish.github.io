@@ -9,29 +9,17 @@ document.addEventListener("DOMContentLoaded", async function () {
         420, 19, 339, 5, 113, 5, 113, 14, 274, 4, 292, 10
     ];
 
-    // 設定需要淡入淡出延遲的場景和無需淡入淡出的場景
-    const noFadeScenes = [1, 9, 10, 11, 12]; // 無需淡入淡出的場景
-    const extendedFadeScenes = {
-        8: 14000  // scene08 的黑畫面延遲 14 秒
-  
+    const noFadeScenes = [1, 2, 6 ,7 , 8, 9, 10, 11, 12]; // 無需淡入淡出的場景
+
+    // 新增矩陣以指定場景切換的延遲
+    const sceneDelays = {
+        8: 14000
     };
-
-    function logCurrentNetworkTime() {
-        const currentDate = new Date();
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const formattedTime = new Intl.DateTimeFormat('default', {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-            timeZoneName: 'short'
-        }).format(currentDate);
-        console.log(`現在的網路時區時間：${formattedTime}，時區：${timeZone}`);
-    }
-
-    const progressContainer = document.getElementById("progressContainer");
+    
+     const progressContainer = document.getElementById("progressContainer");
     const progressBar = document.getElementById("progressBar");
 
+    
     function setProgress(progress) {
         progressBar.style.width = `${progress * 100}%`;
         console.log(`當前進度: ${(progress * 100).toFixed(2)}%`);
@@ -72,7 +60,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         entity.setAttribute('scale', '1 1 1');
         entity.setAttribute('gps-entity-place', `latitude: 22.10001; longitude: 120.10001;`);
         entity.setAttribute('visible', 'false');
+        entity.setAttribute('material', 'opacity: 0.0; transparent: true');
         document.querySelector('a-scene').appendChild(entity);
+
+        entity.addEventListener("model-loaded", () => {
+            const model = entity.getObject3D("mesh");
+            if (model) {
+                model.traverse((node) => {
+                    if (node.isMesh) {
+                        node.material.transparent = true;
+                        node.material.opacity = 0;
+                    }
+                });
+            }
+        });
     }
 
     const modelIds = [
@@ -97,23 +98,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         document.getElementById("loadingOverlay").style.display = "block";
 
-        function updateCircleProgress(progress) {
-            const circle = document.querySelector(".progress-ring__circle");
-            const radius = circle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
-            const offset = circumference - (progress * circumference);
-            circle.style.strokeDasharray = `${circumference} ${circumference}`;
-            circle.style.strokeDashoffset = offset;
-        }
-
         const promises = Array.from(scenes).map((scene, index) => {
             return new Promise((resolve) => {
                 scene.addEventListener("model-loaded", () => {
                     console.log(`模型 ${scene.id} 加載完成`);
                     loadedScenes++;
-
-                    const progress = loadedScenes / totalScenes;
-                    updateCircleProgress(progress);
 
                     if (loadedScenes === totalScenes) {
                         document.getElementById("loadingOverlay").style.display = "none";
@@ -147,14 +136,44 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.log(`停止 ${scene.id} 的動畫`);
     }
 
-    const fadeOverlay = document.getElementById("fadeOverlay");
-
-    function showFadeOverlay() {
-        fadeOverlay.classList.add("show");
+    function fadeIn(entity, duration) {
+        const model = entity.getObject3D("mesh");
+        if (model) {
+            let opacity = 0;
+            const fadeInInterval = setInterval(() => {
+                opacity += (1000 / duration) * 0.01;
+                if (opacity >= 1) {
+                    opacity = 1;
+                    clearInterval(fadeInInterval);
+                }
+                model.traverse((node) => {
+                    if (node.isMesh) {
+                        node.material.opacity = opacity;
+                    }
+                });
+                console.log(`淡入中: ${entity.id} 的透明度為 ${opacity.toFixed(2)}`);
+            }, 10);
+        }
     }
 
-    function hideFadeOverlay() {
-        fadeOverlay.classList.remove("show");
+    function fadeOut(entity, duration) {
+        const model = entity.getObject3D("mesh");
+        if (model) {
+            let opacity = 1;
+            const fadeOutInterval = setInterval(() => {
+                opacity -= (1000 / duration) * 0.01;
+                if (opacity <= 0) {
+                    opacity = 0;
+                    clearInterval(fadeOutInterval);
+                }
+                model.traverse((node) => {
+                    if (node.isMesh) {
+                        node.material.opacity = opacity;
+                    }
+                });
+                console.log(`淡出中: ${entity.id} 的透明度為 ${opacity.toFixed(2)}`);
+            }, 10);
+        }
     }
 
     function playSceneByIndex(index) {
@@ -162,95 +181,73 @@ document.addEventListener("DOMContentLoaded", async function () {
             clearTimeout(animationTimer);
             const currentScene = scenes[currentSceneIndex];
             deactivateScene(currentScene);
-    
+        
             currentSceneIndex = index;
             const nextScene = scenes[currentSceneIndex];
     
-            // 獲取動畫片段和幀數的驗證
-            if (currentSceneIndex === scenes.length - 1) {
-                const animationMixer = nextScene.components['animation-mixer'];
-                if (animationMixer) {
-                    const clips = animationMixer.clip; // 獲取動畫片段
-                    console.log(`場景 ${currentSceneIndex + 1} 的動畫片段:`, clips);
-                    // 檢查幀數
-                    const totalFrames = clips.reduce((total, clip) => total + clip.tracks[0].values.length, 0);
-                    console.log(`場景 ${currentSceneIndex + 1} 的總幀數: ${totalFrames}`);
-                    
-                    // 這裡您可以根據實際的幀數計算出持續時間
-                    const durationFromFrames = (totalFrames / FPS) * 1000;
-                    console.log(`根據幀數計算的持續時間: ${(durationFromFrames / 1000).toFixed(2)} 秒`);
-                } else {
-                    console.error(`場景 ${currentSceneIndex + 1} 沒有找到動畫片段`);
-                }
-            }
-    
+            // 檢查當前場景是否需要淡出
             if (!noFadeScenes.includes(currentSceneIndex + 1)) {
-                showFadeOverlay();
+                fadeOut(currentScene, 700);
                 
-                const fadeDuration = extendedFadeScenes[currentSceneIndex + 1] || 700;
-                
+                // 設定延遲時間
+                const delay = sceneDelays[currentSceneIndex + 1] || 0; // 使用矩陣獲取延遲
+    
+                // 在延遲時間後啟動下一個場景
                 setTimeout(() => {
                     activateScene(nextScene);
-                    hideFadeOverlay();
-                }, fadeDuration);
+                    fadeIn(nextScene, 700);
+                }, delay); // 考慮延遲時間
             } else {
+                // 直接切換場景
                 activateScene(nextScene);
+                const model = nextScene.getObject3D("mesh");
+                if (model) {
+                    model.traverse((node) => {
+                        if (node.isMesh) {
+                            node.material.opacity = 1;
+                        }
+                    });
+                }
             }
-    
+        
             const duration = fixedDurations[currentSceneIndex] * 1000;
             console.log(`當前場景 ${currentSceneIndex} 的固定動畫總持續時間：${(duration / 1000).toFixed(2)} 秒`);
-    
+        
             updateProgressBar(0);
-    
+        
             let elapsedTime = 0;
             let frameCount = 0;
-    
+        
+            // 使用 setTimeout 進行場景播放
             animationTimer = setTimeout(() => {
                 deactivateScene(nextScene);
                 playNextScene();
-            }, duration);
+            }, duration + (sceneDelays[currentSceneIndex + 1] || 0)); // 考慮延遲時間
     
+            // 更新進度條的定時器
             progressTimer = setInterval(() => {
                 elapsedTime += 1000 / FPS;
                 frameCount++;
                 updateProgressBar(elapsedTime / duration);
                 console.log(`場景 ${currentSceneIndex + 1}，幀數: ${frameCount}`);
-    
+        
                 if (elapsedTime >= duration) {
                     clearInterval(progressTimer);
                 }
             }, 1000 / FPS);
+            
             return true;
         }
         return false;
     }
-    
+
 
     function playNextScene() {
         if (currentSceneIndex < scenes.length - 1) {
             playSceneByIndex(currentSceneIndex + 1);
         } else {
             console.log("所有場景動畫已播放完成。");
-            
-            const lastDuration = 0.2 * 1000;
-    
-            // 在最後一個場景播放結束後顯示全屏圖片
-            setTimeout(showFullScreenImage, lastDuration);
         }
-    }
-    
-    function showFullScreenImage() {
-        const img = document.createElement("img");
-        img.src = "../assets/imgs/pages/04/04.png"; 
-        img.style.position = "fixed";
-        img.style.top = "0";
-        img.style.left = "0";
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.zIndex = "1000";
-        img.style.objectFit = "cover";
-        
-        document.body.appendChild(img);
     }
 
     function updateProgressBar(progress) {
@@ -279,8 +276,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     document.getElementById("nextSceneBtn").addEventListener("click", (event) => {
         event.preventDefault();
-        if (currentSceneIndex < scenes.length - 1) {
-            playSceneByIndex(currentSceneIndex + 1);
-        }
+        playNextScene();
     });
 });
