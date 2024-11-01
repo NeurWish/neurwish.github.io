@@ -241,13 +241,29 @@ document.addEventListener("DOMContentLoaded", async function () {
         return false;
     }
     
-
+    function showFullScreenImage() {
+        const img = document.createElement("img");
+        img.src = "../assets/imgs/pages/04/04.png"; 
+        img.style.position = "fixed";
+        img.style.top = "0";
+        img.style.left = "0";
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.zIndex = "1000";
+        img.style.objectFit = "cover";
+        
+        document.body.appendChild(img);
+    }
 
     function playNextScene() {
         if (currentSceneIndex < scenes.length - 1) {
             playSceneByIndex(currentSceneIndex + 1);
         } else {
             console.log("所有場景動畫已播放完成。");
+            // 在延遲後顯示全屏圖片
+            setTimeout(() => {
+                showFullScreenImage(); // 當所有場景播放完成後顯示全屏圖片
+            }, 800); // 2000 毫秒的延遲
         }
     }
 
