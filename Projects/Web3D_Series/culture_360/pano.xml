@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tour start="node1" apprev="18105" appversion="6.1.14">
+  <panorama hideabout="1" id="node1">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node1/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="4" tilt="0" pan="180" fov="50"/>
+      <min tilt="-90" pan="0" fovpixel="1"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node1" altitude="3.00" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-大廳01" comment="" longitude="" customnodeid="" source="" description="" tags="Hall_area|imgs">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="4.2" tilt="-21.19" url="{node2}" distance3D="1145.45" skinid="ht_node" pan="-180.12" target="$fwd" customimage="media/floor.svg" title="Hall_area_02" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="6.3" tilt="-12.59" url="{node3}" distance3D="1527.54" skinid="ht_node" pan="-188.43" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="3" use3D="1" description="" customimagewidth="80" id="Point02"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="23.860" pan="-214.520" type="10" blinding="20.000" color="0xffffff" id="Lensflare01" alpha="50.000"/>
+      <lensflare tilt="23.960" pan="-145.640" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="12.510" pan="-179.830" type="11" blinding="50.000" color="0xffffff" id="Lensflare03" alpha="80.000"/>
+      <lensflare tilt="17.800" pan="-120.960" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="20.790" pan="-92.940" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="17.740" pan="-238.670" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="20.710" pan="-267.040" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node2">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node2/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="4" tilt="0" pan="180" fov="50"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node2" altitude="3.00" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-大廳02" comment="" longitude="" customnodeid="" source="" description="" tags="Hall_area|imgs">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="4.2" tilt="-23.43" url="{node1}" distance3D="457.202" skinid="ht_node" pan="359.72" target="$fwd" customimage="media/floor.svg" title="Hall_area_01" customimageheight="80" fov="10" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="3" tilt="-24.9" url="{node3}" distance3D="643.53" skinid="ht_node" pan="-199.63" target="$fwd" customimage="media/floor.svg" title="" customimageheight="68" fov="8" use3D="1" description="" customimagewidth="90" id="Point02"/>
+      <hotspot tilt="-18.34" url="" distance3D="715.906" skinid="ht_drinker_info" pan="-240.34" target="_self" customimage="media/BTN.svg" title="茫！茫！茫" customimageheight="50" fov="4" use3D="1" description="辛忙的生活不如偶爾放縱圖個樂，段安國欲捕捉人在醉酒時的酣態與癲狂，外人看來瘋茫，醉酒人卻因微醺而有了瀟灑之情感流露。&#xa;&#xa;以此作品作為入口處欣賞，透過此作袒胸瀟灑露真情，醉眼看人生的似舞似茫的愉悅之姿，展開載浮載沈的人間喜劇、島嶼印象。" customimagewidth="50" id="ht_drinker"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="64.290" pan="-173.890" type="11" blinding="50.000" color="0xffffff" id="Lensflare03" alpha="80.000"/>
+      <lensflare tilt="26.510" pan="-110.050" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="26.650" pan="-249.770" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="26.040" pan="-321.690" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="26.080" pan="-38.170" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node3">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node3/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="-0.5" pan="-162.08" fov="50"/>
+      <flyin projection="4" tilt="-1.59" pan="-162.36" fov="50"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node3" altitude="3.00" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-大廳03" comment="" longitude="" customnodeid="" source="" description="" tags="Hall_area|imgs">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="3" tilt="-28.18" url="{node2}" distance3D="1145.45" skinid="ht_node" pan="-31.09" target="$fwd" customimage="media/floor.svg" title="" customimageheight="40" fov="4" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="6.2" tilt="-16.77" url="{node1}" distance3D="763.769" skinid="ht_node" pan="-13.65" target="$fwd" customimage="media/floor.svg" title="" customimageheight="20" fov="3" use3D="1" description="" customimagewidth="40" id="Point02"/>
+      <hotspot distance="1.5" tilt="-40.53" url="{node6}" distance3D="916.151" skinid="ht_node" pan="-115.85" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="5" use3D="1" description="" customimagewidth="80" id="Point03"/>
+      <hotspot distance="4.1" tilt="-24.54" url="{node7}" distance3D="1145.45" skinid="ht_node" pan="-155.88" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point04"/>
+      <hotspot distance="6.7" tilt="-16.24" url="{node8}" distance3D="1527.54" skinid="ht_node" pan="-166.99" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="3" use3D="1" description="" customimagewidth="80" id="Point05"/>
+      <hotspot distance="9.3" tilt="-10.83" url="{node9}" distance3D="2291.6" skinid="ht_node" pan="-172.32" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="2" use3D="1" description="" customimagewidth="80" id="Point06"/>
+      <hotspot distance="13" tilt="-7.61" url="{node10}" distance3D="1527.54" skinid="ht_node" pan="-164.56" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="3" use3D="1" description="" customimagewidth="80" id="Point07"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="23.470" pan="-117.820" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="32.440" pan="-201.260" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="30.710" pan="-318.300" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="40.150" pan="-205.450" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="35.710" pan="-29.440" type="11" blinding="50.000" color="0xffffff" id="Lensflare03" alpha="80.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node6">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node6/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node6" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-雕塑區01" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Work_area_01">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="1.5" tilt="-46.42" url="{node3}" distance3D="457.202" skinid="ht_node" pan="-303.03" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="10" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot tilt="-8.97" url="" distance3D="954.711" skinid="ht_shoemaker_info" pan="-145.96" target="_self" customimage="media/BTN.svg" title="老鞋匠" customimageheight="50" fov="3" use3D="1" description="傳統手工皮鞋是透過師傅一針一線一釘一鉚用心製作，相當費力。在老一輩的時代，買了鞋都會非常珍惜、一穿再穿，鞋子壞了，也非得修理不可。&#xa;&#xa;段安國透過此件作品，表達對工匠師傅敬佩與珍惜舊物之情，看似壞掉無法再穿的舊鞋，在他們敲打、縫補過後，宛如新生，繼續陪伴著主人走過千山萬水。除了致敬工匠的精湛技藝，此件作品也蘊含著早年台灣早年鞋業歷史，彼時，快時尚還未誕生，人們皆十分珍惜自己所擁有的手工皮鞋，於是在皮塑人偶的詮釋下，再度呈現大時代小人物的故事。&#xa;" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot distance="3.6" tilt="-30.95" url="{node7}" distance3D="572.027" skinid="ht_node" pan="-181.42" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point03"/>
+      <hotspot distance="6.2" tilt="-17.93" url="{node8}" distance3D="763.245" skinid="ht_node" pan="-181.38" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point04"/>
+      <hotspot distance="8.9" tilt="-11.54" url="{node9}" distance3D="1145.45" skinid="ht_node" pan="-181.49" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point05"/>
+      <hotspot distance="12" tilt="-7.92" url="{node10}" distance3D="2291.6" skinid="ht_node" pan="-169.56" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="2" use3D="1" description="" customimagewidth="80" id="Point06"/>
+      <hotspot tilt="-8.84" url="" distance3D="954.711" skinid="ht_farmer_01_info" pan="-213.93" target="_self" customimage="media/BTN.svg" title="雨中豐收" customimageheight="50" fov="3" use3D="1" description="東北季風吹拂時的三芝茭白筍最為鮮甜。 &#xa;近期居於三芝地區的段安國，常在清晨看到頂著晨露涼雨老農夫推車採收、阿婆隨即在路邊擺攤賣筍的景象。這件作品呈現的是台灣三芝風情，作者特以泥濘雨鞋、雨衣等配飾，記錄台灣冬季北海岸多雨寒涼的氣候特色。 &#xa;  &#xa;不僅呈現了良善農民的知足表情，也巧妙地展現推車之際應有的動態感、精緻的皮製茭白筍支支錯落在推車內，添增豐收的趣味。 " customimagewidth="50" id="ht_farmer_01"/>
+      <hotspot tilt="-5.39" url="" distance3D="1432.25" skinid="ht_cooker_info" pan="-160.14" target="_self" customimage="media/BTN.svg" title="總鋪師" customimageheight="50" fov="2" use3D="1" description="台灣民間在喜慶及佳節時，總有一同聚餐的習俗，閩南語「總舖師」，是對於廚師的敬稱。此作為段安國近年對百工百業的鮮活印象表達，總鋪師笑容可掬、身著台灣特色藍白拖與白背心、胸前的大金鍊時髦又土氣，整體呈現敦厚、爽朗的感受。在皮革色彩表現上又有另一層創新。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-5.38" url="" distance3D="1432.25" skinid="ht_mazu_info" pan="-199.84" target="_self" customimage="media/BTN.svg" title="媽祖" customimageheight="50" fov="2" use3D="1" description="每當人們焦慮不安、痛苦無助時，總是尋求母親慰藉， &#xa;臺灣媽祖，正如同慈母般，慈祥溫柔、包容關懷，可以撫慰每一個受創、不安的心靈，守護百姓、庇佑信徒。 &#xa;  早年曾嘗試神像創作的段安國，因覺未能入心而轉由身邊的市井題材入手，而多年之後，製作過百工百像的藝術家，對於生命多有領悟，他認為人皆有善念，神則是人格更為超脫的存在狀態，無需遠求，處於人群之中即能見神。有此感悟，他又再度以神像為主題進行創作，而這一尊全以白牛皮製作的媽祖像，有別於傳統廟宇中的神像穿戴華麗衣袍，而以淨素典雅的溫暖紅取代，手持代表吉祥、安康與和平的「玉如意」，莊嚴中透露著慈藹，照看萬物眾生的人間菩薩，其實就在你我心中。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-3.61" url="" distance3D="1909.75" skinid="ht_erhu_info" pan="-166.13" target="_self" customimage="media/BTN.svg" title="拉胡琴" customimageheight="50" fov="1.5" use3D="1" description="老人沈浸在自我悠揚琴聲的世界裡，二胡為中華民族的特色樂器，音色接近人聲，情感表現力極高。 此作精彩的呈現演奏者陶醉演奏的情態，讓觀者彷如其境，亦細膩真實地呈現出老者肌理結構，如膝蓋小腿便為觀察重點之一。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-3.93" url="" distance3D="1909.75" skinid="ht_farmer_02_info" pan="-194.04" target="_self" customimage="media/BTN.svg" title="玉蘭花" customimageheight="50" fov="1.5" use3D="1" description="台灣車陣中常見的特有景象，頂著炎日烈雨，穿梭在車水馬龍之中的身影，一串串白淨甜美的玉蘭花伴隨著清香與喧囂，寄託著她的人生希望與祝福。 此作對於車陣中匆匆一瞥的身影細節描繪入微，段安國特意強調阿婆黝黑的面容與曬褪色的斗笠，她是默默無名的小人物，但也是撐起弱勢家庭重要支柱。" customimagewidth="50" id="ht_shoemaker"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="32.210" pan="-141.300" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="31.870" pan="-218.050" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="35.000" pan="-242.030" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="34.840" pan="-118.150" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node7">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node7/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node7" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-雕塑區02" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Work_area_02">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="3.6" tilt="-31.05" url="{node6}" distance3D="572.027" skinid="ht_node" pan="-2.07" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="4.1" tilt="-21.68" url="{node3}" distance3D="763.245" skinid="ht_node" pan="-341.98" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point02"/>
+      <hotspot distance="2.5" tilt="-31.24" url="{node8}" distance3D="572.027" skinid="ht_node" pan="-180.51" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point03"/>
+      <hotspot distance="5" tilt="-18.11" url="{node9}" distance3D="763.245" skinid="ht_node" pan="-180.51" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point04"/>
+      <hotspot distance="8.4" tilt="-10.47" url="{node10}" distance3D="1145.45" skinid="ht_node" pan="-164.95" target="" customimage="media/floor.svg" title="" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point05"/>
+      <hotspot tilt="-15.62" url="" distance3D="954.711" skinid="ht_shoemaker_info" pan="-91.06" target="_self" customimage="media/BTN.svg" title="老鞋匠" customimageheight="50" fov="3" use3D="1" description="傳統手工皮鞋是透過師傅一針一線一釘一鉚用心製作，相當費力。在老一輩的時代，買了鞋都會非常珍惜、一穿再穿，鞋子壞了，也非得修理不可。&#xa;&#xa;段安國透過此件作品，表達對工匠師傅敬佩與珍惜舊物之情，看似壞掉無法再穿的舊鞋，在他們敲打、縫補過後，宛如新生，繼續陪伴著主人走過千山萬水。除了致敬工匠的精湛技藝，此件作品也蘊含著早年台灣早年鞋業歷史，彼時，快時尚還未誕生，人們皆十分珍惜自己所擁有的手工皮鞋，於是在皮塑人偶的詮釋下，再度呈現大時代小人物的故事。&#xa;" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-9.62" url="" distance3D="1432.25" skinid="ht_cooker_info" pan="-142.4" target="_self" customimage="media/BTN.svg" title="總鋪師" customimageheight="50" fov="2" use3D="1" description="台灣民間在喜慶及佳節時，總有一同聚餐的習俗，閩南語「總舖師」，是對於廚師的敬稱。此作為段安國近年對百工百業的鮮活印象表達，總鋪師笑容可掬、身著台灣特色藍白拖與白背心、胸前的大金鍊時髦又土氣，整體呈現敦厚、爽朗的感受。在皮革色彩表現上又有另一層創新。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-5.76" url="" distance3D="1909.75" skinid="ht_erhu_info" pan="-158.73" target="_self" customimage="media/BTN.svg" title="拉胡琴" customimageheight="50" fov="1.5" use3D="1" description="老人沈浸在自我悠揚琴聲的世界裡，二胡為中華民族的特色樂器，音色接近人聲，情感表現力極高。 此作精彩的呈現演奏者陶醉演奏的情態，讓觀者彷如其境，亦細膩真實地呈現出老者肌理結構，如膝蓋小腿便為觀察重點之一。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-15.65" url="" distance3D="954.711" skinid="ht_farmer_01_info" pan="-268.32" target="_self" customimage="media/BTN.svg" title="雨中豐收" customimageheight="50" fov="3" use3D="1" description="東北季風吹拂時的三芝茭白筍最為鮮甜。 &#xa;近期居於三芝地區的段安國，常在清晨看到頂著晨露涼雨老農夫推車採收、阿婆隨即在路邊擺攤賣筍的景象。這件作品呈現的是台灣三芝風情，作者特以泥濘雨鞋、雨衣等配飾，記錄台灣冬季北海岸多雨寒涼的氣候特色。 &#xa;  &#xa;不僅呈現了良善農民的知足表情，也巧妙地展現推車之際應有的動態感、精緻的皮製茭白筍支支錯落在推車內，添增豐收的趣味。 " customimagewidth="50" id="ht_farmer_01"/>
+      <hotspot tilt="-9.53" url="" distance3D="1432.25" skinid="ht_mazu_info" pan="-217.33" target="_self" customimage="media/BTN.svg" title="媽祖" customimageheight="50" fov="2" use3D="1" description="每當人們焦慮不安、痛苦無助時，總是尋求母親慰藉， &#xa;臺灣媽祖，正如同慈母般，慈祥溫柔、包容關懷，可以撫慰每一個受創、不安的心靈，守護百姓、庇佑信徒。 &#xa;  早年曾嘗試神像創作的段安國，因覺未能入心而轉由身邊的市井題材入手，而多年之後，製作過百工百像的藝術家，對於生命多有領悟，他認為人皆有善念，神則是人格更為超脫的存在狀態，無需遠求，處於人群之中即能見神。有此感悟，他又再度以神像為主題進行創作，而這一尊全以白牛皮製作的媽祖像，有別於傳統廟宇中的神像穿戴華麗衣袍，而以淨素典雅的溫暖紅取代，手持代表吉祥、安康與和平的「玉如意」，莊嚴中透露著慈藹，照看萬物眾生的人間菩薩，其實就在你我心中。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-5.71" url="" distance3D="1909.75" skinid="ht_farmer_02_info" pan="-200.93" target="_self" customimage="media/BTN.svg" title="玉蘭花" customimageheight="50" fov="1.5" use3D="1" description="台灣車陣中常見的特有景象，頂著炎日烈雨，穿梭在車水馬龍之中的身影，一串串白淨甜美的玉蘭花伴隨著清香與喧囂，寄託著她的人生希望與祝福。 此作對於車陣中匆匆一瞥的身影細節描繪入微，段安國特意強調阿婆黝黑的面容與曬褪色的斗笠，她是默默無名的小人物，但也是撐起弱勢家庭重要支柱。" customimagewidth="50" id="ht_shoemaker"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="25.760" pan="-38.490" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="26.230" pan="-321.610" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="45.100" pan="-269.820" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="34.050" pan="-222.480" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="34.540" pan="-137.550" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="44.860" pan="-90.870" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node8">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node8/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node8" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-雕塑區03" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Work_area_03">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="2.5" tilt="-32.19" url="{node9}" distance3D="572.027" skinid="ht_node" pan="-182.22" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="5.8" tilt="-15.26" url="{node10}" distance3D="763.245" skinid="ht_node" pan="-156.88" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point02"/>
+      <hotspot distance="2" tilt="-32.47" url="{node7}" distance3D="572.027" skinid="ht_node" pan="0.52" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point03"/>
+      <hotspot distance="6.2" tilt="-17.39" url="{node6}" distance3D="763.245" skinid="ht_node" pan="0.33" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point04"/>
+      <hotspot distance="6.7" tilt="-13.27" url="{node3}" distance3D="1145.45" skinid="ht_node" pan="-349.21" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point05"/>
+      <hotspot tilt="-9.4" url="" distance3D="1432.25" skinid="ht_farmer_02_info" pan="-217.69" target="_self" customimage="media/BTN.svg" title="玉蘭花" customimageheight="50" fov="2" use3D="1" description="台灣車陣中常見的特有景象，頂著炎日烈雨，穿梭在車水馬龍之中的身影，一串串白淨甜美的玉蘭花伴隨著清香與喧囂，寄託著她的人生希望與祝福。 此作對於車陣中匆匆一瞥的身影細節描繪入微，段安國特意強調阿婆黝黑的面容與曬褪色的斗笠，她是默默無名的小人物，但也是撐起弱勢家庭重要支柱。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-15.08" url="" distance3D="954.711" skinid="ht_mazu_info" pan="-269.85" target="_self" customimage="media/BTN.svg" title="媽祖" customimageheight="50" fov="3" use3D="1" description="每當人們焦慮不安、痛苦無助時，總是尋求母親慰藉， &#xa;臺灣媽祖，正如同慈母般，慈祥溫柔、包容關懷，可以撫慰每一個受創、不安的心靈，守護百姓、庇佑信徒。 &#xa;  早年曾嘗試神像創作的段安國，因覺未能入心而轉由身邊的市井題材入手，而多年之後，製作過百工百像的藝術家，對於生命多有領悟，他認為人皆有善念，神則是人格更為超脫的存在狀態，無需遠求，處於人群之中即能見神。有此感悟，他又再度以神像為主題進行創作，而這一尊全以白牛皮製作的媽祖像，有別於傳統廟宇中的神像穿戴華麗衣袍，而以淨素典雅的溫暖紅取代，手持代表吉祥、安康與和平的「玉如意」，莊嚴中透露著慈藹，照看萬物眾生的人間菩薩，其實就在你我心中。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-10.04" url="" distance3D="1432.25" skinid="ht_farmer_01_info" pan="-322.36" target="_self" customimage="media/BTN.svg" title="雨中豐收" customimageheight="50" fov="2" use3D="1" description="東北季風吹拂時的三芝茭白筍最為鮮甜。 &#xa;近期居於三芝地區的段安國，常在清晨看到頂著晨露涼雨老農夫推車採收、阿婆隨即在路邊擺攤賣筍的景象。這件作品呈現的是台灣三芝風情，作者特以泥濘雨鞋、雨衣等配飾，記錄台灣冬季北海岸多雨寒涼的氣候特色。 &#xa;  &#xa;不僅呈現了良善農民的知足表情，也巧妙地展現推車之際應有的動態感、精緻的皮製茭白筍支支錯落在推車內，添增豐收的趣味。 " customimagewidth="50" id="ht_farmer_01"/>
+      <hotspot tilt="-9.85" url="" distance3D="1432.25" skinid="ht_erhu_info" pan="-142.07" target="_self" customimage="media/BTN.svg" title="拉胡琴" customimageheight="50" fov="2" use3D="1" description="老人沈浸在自我悠揚琴聲的世界裡，二胡為中華民族的特色樂器，音色接近人聲，情感表現力極高。 此作精彩的呈現演奏者陶醉演奏的情態，讓觀者彷如其境，亦細膩真實地呈現出老者肌理結構，如膝蓋小腿便為觀察重點之一。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-15.6" url="" distance3D="954.711" skinid="ht_cooker_info" pan="-90" target="_self" customimage="media/BTN.svg" title="總鋪師" customimageheight="50" fov="3" use3D="1" description="台灣民間在喜慶及佳節時，總有一同聚餐的習俗，閩南語「總舖師」，是對於廚師的敬稱。此作為段安國近年對百工百業的鮮活印象表達，總鋪師笑容可掬、身著台灣特色藍白拖與白背心、胸前的大金鍊時髦又土氣，整體呈現敦厚、爽朗的感受。在皮革色彩表現上又有另一層創新。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-9.55" url="" distance3D="1432.25" skinid="ht_shoemaker_info" pan="-37.37" target="_self" customimage="media/BTN.svg" title="老鞋匠" customimageheight="50" fov="2" use3D="1" description="傳統手工皮鞋是透過師傅一針一線一釘一鉚用心製作，相當費力。在老一輩的時代，買了鞋都會非常珍惜、一穿再穿，鞋子壞了，也非得修理不可。&#xa;&#xa;段安國透過此件作品，表達對工匠師傅敬佩與珍惜舊物之情，看似壞掉無法再穿的舊鞋，在他們敲打、縫補過後，宛如新生，繼續陪伴著主人走過千山萬水。除了致敬工匠的精湛技藝，此件作品也蘊含著早年台灣早年鞋業歷史，彼時，快時尚還未誕生，人們皆十分珍惜自己所擁有的手工皮鞋，於是在皮塑人偶的詮釋下，再度呈現大時代小人物的故事。&#xa;" customimagewidth="50" id="ht_shoemaker"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="45.110" pan="-90.190" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="34.060" pan="-137.470" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="34.280" pan="-42.280" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="34.060" pan="-317.100" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="45.310" pan="-270.140" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="34.520" pan="-222.940" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node9">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node9/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="-146" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node9" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-雕塑區04" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Work_area_04">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="3.5" tilt="-25.27" url="{node10}" distance3D="572.027" skinid="ht_node" pan="-142.76" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="2.5" tilt="-34.36" url="{node8}" distance3D="572.027" skinid="ht_node" pan="-0.25" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point02"/>
+      <hotspot distance="5" tilt="-19.02" url="{node7}" distance3D="763.245" skinid="ht_node" pan="-0.09" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point03"/>
+      <hotspot distance="8.9" tilt="-12.06" url="{node6}" distance3D="1145.45" skinid="ht_node" pan="-0.07" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point04"/>
+      <hotspot distance="9.3" tilt="-9.76" url="{node3}" distance3D="2291.6" skinid="ht_node" pan="-351.49" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="2" use3D="1" description="" customimagewidth="80" id="Point05"/>
+      <hotspot tilt="-5.73" url="" distance3D="1909.75" skinid="ht_shoemaker_info" pan="-21.12" target="_self" customimage="media/BTN.svg" title="老鞋匠" customimageheight="50" fov="1.5" use3D="1" description="傳統手工皮鞋是透過師傅一針一線一釘一鉚用心製作，相當費力。在老一輩的時代，買了鞋都會非常珍惜、一穿再穿，鞋子壞了，也非得修理不可。&#xa;&#xa;段安國透過此件作品，表達對工匠師傅敬佩與珍惜舊物之情，看似壞掉無法再穿的舊鞋，在他們敲打、縫補過後，宛如新生，繼續陪伴著主人走過千山萬水。除了致敬工匠的精湛技藝，此件作品也蘊含著早年台灣早年鞋業歷史，彼時，快時尚還未誕生，人們皆十分珍惜自己所擁有的手工皮鞋，於是在皮塑人偶的詮釋下，再度呈現大時代小人物的故事。&#xa;" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-15.49" url="" distance3D="954.711" skinid="ht_erhu_info" pan="-90.35" target="_self" customimage="media/BTN.svg" title="拉胡琴" customimageheight="50" fov="3" use3D="1" description="老人沈浸在自我悠揚琴聲的世界裡，二胡為中華民族的特色樂器，音色接近人聲，情感表現力極高。 此作精彩的呈現演奏者陶醉演奏的情態，讓觀者彷如其境，亦細膩真實地呈現出老者肌理結構，如膝蓋小腿便為觀察重點之一。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-9.64" url="" distance3D="1432.25" skinid="ht_cooker_info" pan="-37.88" target="_self" customimage="media/BTN.svg" title="總鋪師" customimageheight="50" fov="2" use3D="1" description="台灣民間在喜慶及佳節時，總有一同聚餐的習俗，閩南語「總舖師」，是對於廚師的敬稱。此作為段安國近年對百工百業的鮮活印象表達，總鋪師笑容可掬、身著台灣特色藍白拖與白背心、胸前的大金鍊時髦又土氣，整體呈現敦厚、爽朗的感受。在皮革色彩表現上又有另一層創新。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-15.35" url="" distance3D="954.711" skinid="ht_farmer_02_info" pan="-269.62" target="_self" customimage="media/BTN.svg" title="玉蘭花" customimageheight="50" fov="3" use3D="1" description="台灣車陣中常見的特有景象，頂著炎日烈雨，穿梭在車水馬龍之中的身影，一串串白淨甜美的玉蘭花伴隨著清香與喧囂，寄託著她的人生希望與祝福。 此作對於車陣中匆匆一瞥的身影細節描繪入微，段安國特意強調阿婆黝黑的面容與曬褪色的斗笠，她是默默無名的小人物，但也是撐起弱勢家庭重要支柱。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-9.7" url="" distance3D="1432.25" skinid="ht_mazu_info" pan="-322.18" target="_self" customimage="media/BTN.svg" title="媽祖" customimageheight="50" fov="2" use3D="1" description="每當人們焦慮不安、痛苦無助時，總是尋求母親慰藉， &#xa;臺灣媽祖，正如同慈母般，慈祥溫柔、包容關懷，可以撫慰每一個受創、不安的心靈，守護百姓、庇佑信徒。 &#xa;  早年曾嘗試神像創作的段安國，因覺未能入心而轉由身邊的市井題材入手，而多年之後，製作過百工百像的藝術家，對於生命多有領悟，他認為人皆有善念，神則是人格更為超脫的存在狀態，無需遠求，處於人群之中即能見神。有此感悟，他又再度以神像為主題進行創作，而這一尊全以白牛皮製作的媽祖像，有別於傳統廟宇中的神像穿戴華麗衣袍，而以淨素典雅的溫暖紅取代，手持代表吉祥、安康與和平的「玉如意」，莊嚴中透露著慈藹，照看萬物眾生的人間菩薩，其實就在你我心中。" customimagewidth="50" id="ht_shoemaker"/>
+      <hotspot tilt="-5.66" url="" distance3D="1909.75" skinid="ht_farmer_01_info" pan="-338.96" target="_self" customimage="media/BTN.svg" title="雨中豐收" customimageheight="50" fov="1.5" use3D="1" description="東北季風吹拂時的三芝茭白筍最為鮮甜。 &#xa;近期居於三芝地區的段安國，常在清晨看到頂著晨露涼雨老農夫推車採收、阿婆隨即在路邊擺攤賣筍的景象。這件作品呈現的是台灣三芝風情，作者特以泥濘雨鞋、雨衣等配飾，記錄台灣冬季北海岸多雨寒涼的氣候特色。 &#xa;  &#xa;不僅呈現了良善農民的知足表情，也巧妙地展現推車之際應有的動態感、精緻的皮製茭白筍支支錯落在推車內，添增豐收的趣味。 " customimagewidth="50" id="ht_farmer_01"/>
+    </hotspots>
+    <media>
+      <lensflare tilt="45.240" pan="-91.740" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+      <lensflare tilt="34.830" pan="-43.910" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="34.460" pan="-316.860" type="10" blinding="10.000" color="0xffffff" id="Lensflare02" alpha="40.000"/>
+      <lensflare tilt="45.300" pan="-268.090" type="10" blinding="20.000" color="0xffffff" id="Lensflare02" alpha="50.000"/>
+    </media>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node10">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node10/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="149" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node10" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-雕塑區05" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Work_area_05">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="2.5" tilt="-27.7" url="{node4}" distance3D="572.027" skinid="ht_node" pan="-233.6" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="3.5" tilt="-24.01" url="{node9}" distance3D="572.027" skinid="ht_node" pan="-313.37" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point02"/>
+      <hotspot distance="5.8" tilt="-15.7" url="{node8}" distance3D="763.245" skinid="ht_node" pan="-333.03" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point03"/>
+      <hotspot distance="8.4" tilt="-10.62" url="{node7}" distance3D="1145.45" skinid="ht_node" pan="-343.05" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="4" use3D="1" description="" customimagewidth="80" id="Point04"/>
+      <hotspot distance="12" tilt="-8.26" url="{node6}" distance3D="2291.6" skinid="ht_node" pan="-347.17" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="2" use3D="1" description="" customimagewidth="80" id="Point05"/>
+      <hotspot distance="13" tilt="-7.44" url="{node3}" distance3D="2291.6" skinid="ht_node" pan="-343.26" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="2" use3D="1" description="" customimagewidth="80" id="Point06"/>
+      <hotspot distance="6" tilt="-15.84" url="{node5}" distance3D="763.245" skinid="ht_node" pan="-204.55" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point07"/>
+      <hotspot tilt="-0.45" url="1yPAkqfwrTo" distance3D="802.902" skinid="ht_video_youtube" pan="-193.19" target="" customimage="media/video_button.svg" title="段安國浮相展" customimageheight="40" fov="3.70947" use3D="1" description="" customimagewidth="52" id="Point08"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node4">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node4/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node4" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-畫室01" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Picture_area_01">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="3.4" tilt="-19.76" url="{node5}" distance3D="572.027" skinid="ht_node" pan="-179.95" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="2.5" tilt="-32.97" url="{node10}" distance3D="572.027" skinid="ht_node" pan="-63.49" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point02"/>
+      <hotspot tilt="-0.58" url="1yPAkqfwrTo" distance3D="630.079" skinid="ht_video_youtube" pan="-180" target="" customimage="media/video_button.svg" title="段安國浮相展" customimageheight="40" fov="4.7259" use3D="1" description="" customimagewidth="52" id="Point03"/>
+      <hotspot tilt="-8.22" url="" distance3D="1604.12" skinid="ht_1993_info" pan="-203.03" target="_blank" customimage="media/BTN.svg" title="時期一、初試啼聲" customimageheight="56" fov="2" use3D="1" description="走上皮革創作一途非常偶然，三十歲那年帶著懷孕的妻子逛展，看見前輩皮塑作品一時間起了雞皮疙瘩，大受感動之餘，興起一股「自己想做做看」的念頭＂，在沒有任何美術、雕塑的基礎下，買下了生平的第一張皮，從此開始自我摸索階段，廢寢忘食地探索皮塑世界的各種可能性，完全無師自通、自我摸索的情況下，歷經各種實驗與挑戰，待技藝日臻純熟後便投入自己的情感，以皮革爲媒介，開始揣摩人生百態。" customimagewidth="56" id="1993_info_BTN"/>
+      <hotspot tilt="-9.78" url="" distance3D="1145.73" skinid="ht_1995_info" pan="-207.4" target="_blank" customimage="media/BTN.svg" title="時期二、歲月光景" customimageheight="50" fov="2.5" use3D="1" description="此時期為段安國創作歷程的初階段，因對生活經驗有所感而進行創作，想將腦海中回憶記錄下來，以巧手創造出各式的台灣人物縮影，記錄時代的變遷與島嶼印象，尤其是對台灣市井小民心情寫照描寫更是刻畫入微。因作者認為自己就是個小人物，所以更能體會人民的甘與苦，而這些生活在最基層的人，終其一生可能都不為人知，但卻是建構社會的基礎，努力為生活打拼的真善美，是最具有生命力的表現。" customimagewidth="50" id="1995_info_BTN"/>
+      <hotspot tilt="-11.64" url="" distance3D="954.711" skinid="ht_2000_info" pan="-213.99" target="_blank" customimage="media/BTN.svg" title="時期三、醫者仁心" customimageheight="50" fov="3" use3D="1" description="藝術家段安國以皮雕刻畫眾多人間情態，本展意欲連結對於人世處境同持的關切之心,引導觀者進行更深入的思考。他以解剖之眼與巧做之手，細膩地呈現人體結構與情態，有如醫者以望、聞、問、切之法行診，析問世間百態，且透過皮革溫潤的材質去表繪扭轉平常人對於就診時對醫師的感受印象，引人會心一笑。藝術與科學的交會，理性與感性的結點，經由他的「醫生」系列作品，形成了巧妙的註解。" customimagewidth="50" id="2000_info_BTN"/>
+      <hotspot tilt="-14.72" url="" distance3D="818.257" skinid="ht_2010_info" pan="-225.76" target="_blank" customimage="media/BTN.svg" title="時期四、巔峰造藝" customimageheight="50" fov="3.5" use3D="1" description="美麗的寶島台灣，是擁有多元文化和諧共存的社會、富含歷史以及各種移民遷入特色，交織出美麗的人文風景，以福爾摩沙原住民為題材之系列是段安國將皮革確認作為雕塑媒材的一項突破，透過繽紛的服飾色彩與奔放活潑的姿態張力，精彩展現出有別於西方的台灣人體雕塑力與美，呈現出豐富多元的藝術特質及社會意義。" customimagewidth="50" id="2010_info_BTN"/>
+      <hotspot tilt="-18.42" url="" distance3D="715.906" skinid="ht_2019_info" pan="-243.97" target="_blank" customimage="media/BTN.svg" title="時期二、歲月光景" customimageheight="50" fov="4" use3D="1" description="沒人能夠說出神的真正形體與模樣,但世間卻擁有眾多神尊供人參拜,於是藝術家段安國將對神的意念有形化,用信仰與神話作為創作養分,也讓觀眾體會到皮革工藝的精巧面向。 " customimagewidth="50" id="2019_info_BTN"/>
+      <hotspot tilt="-10.66" url="" distance3D="818.257" skinid="ht_exquisite_info_btn" pan="-143.12" target="_blank" customimage="media/BTN.svg" title="精巧工藝" customimageheight="50" fov="3.5" use3D="1" description="段安國選用皮革作為創作媒材，係由於皮革的延展性佳，可塑性強，同時其質感與柔軟度接近於人的肌膚，搭配精巧細緻的工藝手法去創造各式的人與物，能表現出的人物作品時幾可亂真。&#xa;然而，一件立體皮革雕塑的成形工序十分繁瑣；從作品主題構思選定到整體結構設計，需要長期的觀察與精準的計算，在人物皮塑製作上，首先按作品比例製作模型，待模型製作完成後，再將皮革以水濡濕軟化後包覆於模型上，再利用皮的延展性施以拉、扯、推、捏、擠、理等工序後，立體皮塑慢慢成型，待其乾燥後進行細部線條的雕刻修整才能予以染料上色，最後，再進行各種物件組合與配件製作，才進行保護漆、亮面處理等最後完工工序。&#xa;每一道工序都需依靠反覆實驗與創新去累積經驗，需深諳各種皮革材質、顏料染料的特性，方能令成品傳遞出來的厚薄質感、氛圍、色彩、線條與張力，呈現出恰到好處的美。" customimagewidth="50" id="exquisite_info"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <panorama hideabout="1" id="node5">
+    <input levelingroll="0" levelbiashidpi="1.000" width="4096" height="4096" leveltilesize="1024" levelbias="0.400" overlap="1" leveltileurl="tiles/node5/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingpitch="0">
+      <level width="4096" height="4096" preload="0" predecode="0"/>
+      <level width="1024" height="1024" preload="0" predecode="0"/>
+      <level width="256" height="256" preload="1" predecode="1"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start projection="4" tilt="0" pan="180" fov="50"/>
+      <flyin projection="9" tilt="-90" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" fovfisheye="360" pan="360" scaletofit="1" fov="50" fovstereographic="270"/>
+    </view>
+    <userdata nodeid="node5" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽-畫室02" comment="" longitude="" customnodeid="" source="" description="" tags="imgs|Picture_area_02">
+      <mapcoords y_floorplan_percent="inf" x_floorplan_percent="inf" y="nan" mapid="FloorPlan01" x="nan"/>
+    </userdata>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundalpha="1" backgroundcolor="0xffffff" bordercolor="0x000000" textcolor="0x000000" wordwrap="1" enabled="1" width="180" height="20" background="1" borderalpha="1" borderradius="1" textalpha="1" border="1"/>
+      <polystyle backgroundalpha="0.25098" backgroundcolor="0x0000ff" bordercolor="0x0000ff" mode="0" borderalpha="1" handcursor="1"/>
+      <hotspot distance="3.4" tilt="-26.3" url="{node4}" distance3D="572.027" skinid="ht_node" pan="-354.25" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="8" use3D="1" description="" customimagewidth="80" id="Point01"/>
+      <hotspot distance="6" tilt="-15.49" url="{node10}" distance3D="763.245" skinid="ht_node" pan="-22.71" target="$fwd" customimage="media/floor.svg" title="" customimageheight="80" fov="6" use3D="1" description="" customimagewidth="80" id="Point02"/>
+      <hotspot tilt="-0.99" url="1yPAkqfwrTo" distance3D="373.767" skinid="ht_video_youtube" pan="-180" target="" customimage="media/video_button.svg" title="段安國浮相展" customimageheight="40" fov="7.95841" use3D="1" description="" customimagewidth="52" id="Point03"/>
+      <hotspot tilt="-15.29" url="" distance3D="1069.28" skinid="ht_1993_info" pan="-228.45" target="_blank" customimage="media/BTN.svg" title="時期一、初試啼聲" customimageheight="56" fov="3" use3D="1" description="走上皮革創作一途非常偶然，三十歲那年帶著懷孕的妻子逛展，看見前輩皮塑作品一時間起了雞皮疙瘩，大受感動之餘，興起一股「自己想做做看」的念頭＂，在沒有任何美術、雕塑的基礎下，買下了生平的第一張皮，從此開始自我摸索階段，廢寢忘食地探索皮塑世界的各種可能性，完全無師自通、自我摸索的情況下，歷經各種實驗與挑戰，待技藝日臻純熟後便投入自己的情感，以皮革爲媒介，開始揣摩人生百態。" customimagewidth="56" id="1993_info_BTN"/>
+      <hotspot tilt="-17.66" url="" distance3D="818.257" skinid="ht_1995_info" pan="-243.29" target="_blank" customimage="media/BTN.svg" title="時期二、歲月光景" customimageheight="50" fov="3.5" use3D="1" description="此時期為段安國創作歷程的初階段，因對生活經驗有所感而進行創作，想將腦海中回憶記錄下來，以巧手創造出各式的台灣人物縮影，記錄時代的變遷與島嶼印象，尤其是對台灣市井小民心情寫照描寫更是刻畫入微。因作者認為自己就是個小人物，所以更能體會人民的甘與苦，而這些生活在最基層的人，終其一生可能都不為人知，但卻是建構社會的基礎，努力為生活打拼的真善美，是最具有生命力的表現。" customimagewidth="50" id="1995_info_BTN"/>
+      <hotspot tilt="-19.77" url="" distance3D="715.906" skinid="ht_2000_info" pan="-266.68" target="_blank" customimage="media/BTN.svg" title="時期三、醫者仁心" customimageheight="50" fov="4" use3D="1" description="藝術家段安國以皮雕刻畫眾多人間情態，本展意欲連結對於人世處境同持的關切之心,引導觀者進行更深入的思考。他以解剖之眼與巧做之手，細膩地呈現人體結構與情態，有如醫者以望、聞、問、切之法行診，析問世間百態，且透過皮革溫潤的材質去表繪扭轉平常人對於就診時對醫師的感受印象，引人會心一笑。藝術與科學的交會，理性與感性的結點，經由他的「醫生」系列作品，形成了巧妙的註解。" customimagewidth="50" id="2000_info_BTN"/>
+      <hotspot tilt="-18.64" url="" distance3D="818.257" skinid="ht_2010_info" pan="-292.18" target="_blank" customimage="media/BTN.svg" title="時期四、巔峰造藝" customimageheight="50" fov="3.5" use3D="1" description="美麗的寶島台灣，是擁有多元文化和諧共存的社會、富含歷史以及各種移民遷入特色，交織出美麗的人文風景，以福爾摩沙原住民為題材之系列是段安國將皮革確認作為雕塑媒材的一項突破，透過繽紛的服飾色彩與奔放活潑的姿態張力，精彩展現出有別於西方的台灣人體雕塑力與美，呈現出豐富多元的藝術特質及社會意義。" customimagewidth="50" id="2010_info_BTN"/>
+      <hotspot tilt="-15.25" url="" distance3D="954.711" skinid="ht_2019_info" pan="-311.65" target="_blank" customimage="media/BTN.svg" title="時期二、歲月光景" customimageheight="50" fov="3" use3D="1" description="沒人能夠說出神的真正形體與模樣,但世間卻擁有眾多神尊供人參拜,於是藝術家段安國將對神的意念有形化,用信仰與神話作為創作養分,也讓觀眾體會到皮革工藝的精巧面向。 " customimagewidth="50" id="2019_info_BTN"/>
+      <hotspot tilt="-17.31" url="" distance3D="715.906" skinid="ht_exquisite_info_btn" pan="-89.85" target="_blank" customimage="media/BTN.svg" title="精巧工藝" customimageheight="50" fov="4" use3D="1" description="段安國選用皮革作為創作媒材，係由於皮革的延展性佳，可塑性強，同時其質感與柔軟度接近於人的肌膚，搭配精巧細緻的工藝手法去創造各式的人與物，能表現出的人物作品時幾可亂真。&#xa;然而，一件立體皮革雕塑的成形工序十分繁瑣；從作品主題構思選定到整體結構設計，需要長期的觀察與精準的計算，在人物皮塑製作上，首先按作品比例製作模型，待模型製作完成後，再將皮革以水濡濕軟化後包覆於模型上，再利用皮的延展性施以拉、扯、推、捏、擠、理等工序後，立體皮塑慢慢成型，待其乾燥後進行細部線條的雕刻修整才能予以染料上色，最後，再進行各種物件組合與配件製作，才進行保護漆、亮面處理等最後完工工序。&#xa;每一道工序都需依靠反覆實驗與創新去累積經驗，需深諳各種皮革材質、顏料染料的特性，方能令成品傳遞出來的厚薄質感、氛圍、色彩、線條與張力，呈現出恰到好處的美。" customimagewidth="50" id="exquisite_info"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomin="0" zoomspeed="2" zoomfov="20" blendcolor="0x000000" enabled="1" softedge="0" zoomout="0" zoomafterinfov="90" type="crossdissolve" zoomafteroutfov="20" zoomoutpause="1"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control hideabout="1" lockedwheel="0" simulatemass="1" lockedmouse="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" contextvr="1" contextprojections="0" contextfullscreen="1" lockedkeyboard="0" sensitivity="8" speedwheel="1" rubberband="0" invertwheel="0"/>
+  </panorama>
+  <masternode>
+    <userdata nodeid="master" info="" author="NMStudio" copyright="NeurmoStudio" datetime="2022/05/24 上午 11:46" latitude="" heading="0" title="段安國-皮雕藝術虛擬展覽" comment="" longitude="" customnodeid="" source="" description="" tags=""/>
+  </masternode>
+  <map transparent="0" zoomlevels="1" tileformat="jpg" title="" width="0" height="0" bgcolor="rgba(255, 255, 255, 1)" type="file" id="FloorPlan01" floorplannorth="180"/>
+</tour>
