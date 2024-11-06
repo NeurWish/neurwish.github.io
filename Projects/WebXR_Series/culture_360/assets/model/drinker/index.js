@@ -30,7 +30,7 @@ loadingManager.onLoad = function() {
 // }
 
 const loader = new GLTFLoader(loadingManager)
-loader.load('./assets/drinker.glb', function(glb){
+loader.load('assets/drinker.glb', function(glb){
     console.log(glb)
     const root = glb.scene;
     root.scale.set(1, 1, 1)
@@ -52,7 +52,7 @@ loader.load('./assets/drinker.glb', function(glb){
 const geometry = new THREE.SphereGeometry( 500, 60, 40 );
 geometry.scale( - 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( {
-  map: new THREE.TextureLoader(loadingManager).load( './assets/imgs/drinker_panorama.png' ),
+  map: new THREE.TextureLoader(loadingManager).load( 'assets/imgs/drinker_panorama.png' ),
   side: THREE.DoubleSide
 } );
 const panorama = new THREE.Mesh( geometry, material );
