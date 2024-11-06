@@ -6,14 +6,35 @@
     <title>NMStudio-Web</title>
     <link rel="stylesheet" type="text/css" href="./src/css/pages.css">
     <link rel="stylesheet" type="text/css" href="./src/css/ui.css">
-  </head>
-
-  <body>
-
     <script src="/src/js/pages.js"></script>
     <script src="/src/js/main.js"></script>
     <script src="/src/js/cors.js"></script>
     <script src="/src/js/anim.js"></script>
+  </head>
+
+  <body>
+    <div class="model">
+      <header class="header">
+        <header class="header-in">
+          <div class="logo"></div>
+          <nav class="site-nav">
+            <a href="./" aria-label="Logo">
+              <img class="img-responsive" src="" alt="NMStudio">
+            </a>
+          </nav>
+        </header>
+      </header>
+      <div id="mobile-menu" class="mobile-menu">
+        ::before
+        "CLOSE"
+        ::after
+        <div class="main-icon close-btn"></div>
+        <div class="main-menu"></div>
+        <div class="overlay"></div>
+      </div>
+    </div>
+
+
     <button onclick="window.location.href='/Projects/WebXR_Series/Zoo-WebXR/'">永生動物園WebXR</button>
     <button onclick="window.location.href='/Projects/WebXR_Series/culture_360/'">段安國藝術家-虛擬展間</button>
 
