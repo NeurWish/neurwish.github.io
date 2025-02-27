@@ -1,0 +1,27 @@
+model:
+  name: NMGen3D
+  input_size: [256, 256]
+  output_format: "obj"
+  model_type: "UNet3D"
+  checkpoint: "models/nmgen3d.pth"
+
+system:
+  device: "cuda"  # 使用 GPU
+  epochs: 100
+  batch_size: 8
+  learning_rate: 0.0001
+
+api:
+  google_api_key: "your_google_api_key"
+  openai_api_key: "your_openai_api_key"
+
+paths:
+  dataset: "datasets/train/"
+  output: "outputs/"
+  logs: "logs/"
+
+augmentation:
+  enabled: true
+  rotation: true
+  scaling: true
+  flipping: false

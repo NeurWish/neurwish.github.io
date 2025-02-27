@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMGen3D - 3D Generation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; height: 100vh; justify-content: center; }
+        canvas { border: 1px solid #ddd; }
+        input, button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to NMGen3D!</h1>
+    <p>This tool generates 3D objects from 2D images.</p>
+    
+    <input type="file" id="imageUpload" accept="image/*">
+    <button onclick="uploadImage()">Generate 3D Model</button>
+
+    <div id="model-container">
+        <canvas id="3d-viewer" width="600" height="400"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/OBJLoader.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 600 / 400, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('3d-viewer') });
+        renderer.setSize(600, 400);
+        camera.position.z = 5;
+
+        async function uploadImage() {
+    const fileInput = document.querySelector("input[type='file']");
+    const file = fileInput.files[0];
+
+    if (!file) {
+        console.error("❌ 請選擇一個檔案！");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    console.log("🚀 發送圖片到 Flask API:", file);
+
+    try {
+        const response = await fetch("http://127.0.0.1:8000/generate_3d/", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json",  // 確保 Flask 可以解析請求
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP 錯誤: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("✅ 伺服器回應:", data);
+    } catch (error) {
+        console.error("❌ 請求錯誤:", error);
+    }
+}
+
+
+        function loadModel(modelPath) {
+            const loader = new THREE.OBJLoader();
+            loader.load(modelPath, function (object) {
+                scene.add(object);
+                object.position.y = -1;
+                animate();
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>
