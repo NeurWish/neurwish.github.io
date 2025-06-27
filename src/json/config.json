@@ -1,0 +1,108 @@
+{
+  "api": {
+    "bot": {
+      "endpoint": "http://localhost:5001/api/v1/chat",
+      "timeout": 10000,
+      "retryAttempts": 3,
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer nmbot_api_221252a0eb084bc3"
+      }
+    },
+    "orders": {
+      "endpoint": "https://your-api-domain.com/api/orders",
+      "timeout": 15000,
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  },
+  "bot": {
+    "name": "NMStudio 助理",
+    "avatar": "🤖",
+    "status": "線上服務中",
+    "welcomeMessage": "您好！我是 NMStudio 的 AI 助理。有什麼可以幫助您的嗎？",
+    "typing": {
+      "minDelay": 800,
+      "maxDelay": 2000,
+      "typingSpeed": 50
+    },
+    "responses": {
+      "price": "我們的服務價格會根據專案複雜度而定。AI專案開發通常從NT$50,000起，3D建模服務從NT$20,000起。建議您填寫訂單表單，我們會提供詳細報價。",
+      "time": "專案時間依複雜度而定，一般AI專案需要2-4週，3D建模專案需要1-3週。我們會在初步討論後提供詳細的時程規劃。",
+      "contact": "您可以透過以下方式聯絡我們：<br>📧 Email: contact@nmstudio.com<br>📱 電話: +886-2-1234-5678<br>或直接填寫網站上的訂單表單。",
+      "services": "我們提供三大核心服務：<br>1. AI專案開發 - 影像辨識、OCR、語音合成等<br>2. 3D建模動畫 - 專業建模與視覺生成<br>3. 系統整合 - 跨平台開發與雲端部署",
+      "default": "感謝您的詢問！我已經記錄您的問題，我們的專業團隊會盡快回覆您。如需即時協助，請透過訂單系統提交您的需求，或直接聯絡我們的客服團隊。"
+    },
+    "keywords": {
+      "price": ["價格", "費用", "預算", "價錢", "多少錢"],
+      "time": ["時間", "期程", "多久", "什麼時候", "完成"],
+      "contact": ["聯絡", "聯繫", "電話", "email", "郵件"],
+      "services": ["服務", "項目", "做什麼", "業務"]
+    }
+  },
+  "ui": {
+    "colors": {
+      "primary": "#00ffff",
+      "secondary": "#ff6b35",
+      "background": "#0a0a0a",
+      "text": "#ffffff"
+    },
+    "animations": {
+      "glowPulseSpeed": 3000,
+      "typingSpeed": 100,
+      "scrollOffset": 200
+    },
+    "layout": {
+      "heroVideoAspectRatio": "16/9",
+      "maxContentWidth": "1200px",
+      "mobileBreakpoint": 768
+    }
+  },
+  "company": {
+    "name": "NMStudio",
+    "fullName": "NMStudio 工作室",
+    "description": "專注於 AI 技術開發、3D 模型生成、智慧系統整合與跨平台應用",
+    "contact": {
+      "emails": ["contact@nmstudio.com", "business@nmstudio.com"],
+      "phones": ["+886-2-1234-5678", "+886-2-8765-4321"],
+      "address": {
+        "zh": "台北市信義區基隆路一段180號 8樓 NMStudio 工作室",
+        "en": "8F, No.180, Sec.1, Keelung Rd., Xinyi Dist., Taipei City, Taiwan"
+      },
+      "hours": {
+        "zh": ["週一至週五 09:00-18:00", "週六 10:00-16:00"],
+        "en": ["Mon-Fri 09:00-18:00", "Sat 10:00-16:00"]
+      }
+    }
+  },
+  "features": {
+    "particles": {
+      "enabled": true,
+      "count": 80,
+      "colors": ["#00ffff", "#ff6b35", "#ffffff"]
+    },
+    "backgroundAnimation": {
+      "enabled": true,
+      "speed": 6000
+    },
+    "autoLanguageDetection": true,
+    "localStorage": true
+  },
+  "database": {
+    "mysql": {
+      "host": "localhost",
+      "port": 3306,
+      "database": "neurwish_orders",
+      "user": "",
+      "password": ""
+    },
+    "sqlite": {
+      "database": "data/order/orders.db"
+    }
+  },
+  "orderStorage": {
+    "jsonPath": "data/order/"
+  }
+}

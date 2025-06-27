@@ -1,5 +1,5 @@
 .pages {
-  background: url("../../assets/imgs/pages/01/01-bg.png");
+  background: url("/projects/WebXR_Series/Zoo-WebXR/assets/imgs/pages/01/01-bg.png");
   background-position: center;
   background-size: 100%;
   display: block;
@@ -30,7 +30,7 @@
 }
 
 .pages-01-logo {  
-  background: url("../../assets/imgs/pages/01/01-logo.png");
+  background: url("/projects/WebXR_Series/Zoo-WebXR/assets/imgs/pages/01/01-logo.png");
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -100,7 +100,7 @@
 .pages-01-button {
   border-color: #0000;
   background-color: #0000;
-  background-image: url('../../assets/imgs/pages/01/01-button.svg');
+  background-image: url('/projects/WebXR_Series/Zoo-WebXR/assets/imgs/pages/01/01-button.svg');
   background-repeat: no-repeat;
   border-image-slice: 1;
   border-width: 5px;
@@ -221,7 +221,7 @@
 
 .phone-con {
   transform: translate(-50%, -50%); /* 將元素的中心點移動到正中位置 */
-  background-image: url('../../assets/imgs/pages/02/02-2.3/phone-con.png');
+  background-image: url('/projects/WebXR_Series/Zoo-WebXR/assets/imgs/pages/02/02-2.3/phone-con.png');
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;

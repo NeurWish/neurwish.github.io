@@ -1,0 +1,23 @@
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: transparent;
+}
+
+/* Custom particle styling */
+#particles-js canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Additional glow effects for particles */
+.particle-glow {
+    box-shadow: 
+        0 0 6px var(--primary-cyan),
+        0 0 30px var(--primary-cyan),
+        0 0 40px var(--primary-cyan);
+}

@@ -1,0 +1,78 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Web 爬蟲系統</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Web 爬蟲系統</h1>
+    <form method="post">
+      <label>爬蟲模式：
+        <select name="mode" id="mode" onchange="toggleFields()">
+          <option value="generic" {% if request.form.get('mode')=='generic' %}selected{% endif %}>一般網站</option>
+          <option value="youtube" {% if request.form.get('mode')=='youtube' %}selected{% endif %}>YouTube 留言</option>
+        </select>
+      </label>
+      <label>目標網址 URL：<input type="text" name="url" value="{{ request.form.url or '' }}" required></label>
+      <div id="generic-fields">
+        <label>關鍵字：<input type="text" name="keyword" value="{{ request.form.keyword or '' }}"></label>
+        <label>頁數：<input type="number" name="pages" min="1" value="{{ request.form.pages or 1 }}"></label>
+      </div>
+      <button type="submit">開始爬蟲</button>
+    </form>
+
+    <!-- Search results container always present -->
+    <div class="results">
+      {% if success %}
+        {% if request.form.get('mode')=='youtube' %}
+          <h2>YouTube 留言分析結果</h2>
+          <a href="{{ url_for('download_excel') }}">⬇️ 下載留言 Excel</a>
+          <table>
+            <thead>
+              <tr><th>ID</th><th>作者</th><th>頻道 ID</th><th>留言內容</th><th>影片連結</th></tr>
+            </thead>
+            <tbody>
+            {% for item in results %}
+              <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.author }}</td>
+                <td>{{ item.author_channel_id }}</td>
+                <td>{{ item.content }}</td>
+                <td><a href="{{ item.link }}" target="_blank">連結</a></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <a href="{{ url_for('download_excel') }}">⬇️ 下載結果 Excel</a>
+          <h2>結果預覽</h2>
+          <div class="results-cards">
+            {% for item in results %}
+            <div class="item">
+              <h4>ID: {{ item.id }}</h4>
+              {% if item.static_url %}
+                <img src="{{ item.static_url }}" alt="{{ item.title }}">
+              {% endif %}
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.content }}</p>
+              <a href="{{ item.link }}" target="_blank">{{ item.link }}</a>
+            </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+
+  <script>
+    function toggleFields() {
+      var mode = document.getElementById('mode').value;
+      document.getElementById('generic-fields').style.display = (mode === 'generic') ? 'block' : 'none';
+    }
+    window.onload = toggleFields;
+  </script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

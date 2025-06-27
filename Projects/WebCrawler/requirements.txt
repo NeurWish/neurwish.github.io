@@ -1,0 +1,8 @@
+flask
+requests
+beautifulsoup4
+pandas
+openpyxl
+gunicorn
+waitress
+google-api-python-client

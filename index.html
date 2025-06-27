@@ -1,42 +1,260 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="zh-TW">
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>NMStudio-Web</title>
-    <link rel="stylesheet" type="text/css" href="./src/css/pages.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMStudio - AI 技術開發專家</title>
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css">
     <link rel="stylesheet" type="text/css" href="./src/css/ui.css">
-    <script src="/src/js/pages.js"></script>
-    <script src="/src/js/main.js"></script>
-    <script src="/src/js/cors.js"></script>
-    <script src="/src/js/anim.js"></script>
-  </head>
+    <link rel="stylesheet" type="text/css" href="./src/css/order.css">
+    <link rel="stylesheet" type="text/css" href="./src/css/particles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="model">
-      <header class="header">
-        <header class="header-in">
-          <div class="logo"></div>
-          <nav class="site-nav">
-            <a href="./" aria-label="Logo">
-              <img class="img-responsive" src="" alt="NMStudio">
-            </a>
-          </nav>
-        </header>
-      </header>
-      <div id="mobile-menu" class="mobile-menu">
-        ::before
-        "CLOSE"
-        ::after
-        <div class="main-icon close-btn"></div>
-        <div class="main-menu"></div>
-        <div class="overlay"></div>
-      </div>
+<body>
+    <div class="cyberpunk-container">
+        <!-- Background Animation -->
+        <div class="bg-animation"></div>
+        
+        <!-- Particles -->
+        <div id="particles-js"></div>
+        
+        <!-- Main Logo with Studio Name -->
+        <div class="main-logo">
+            <img src="assets/imgs/logo/NeurmoStudio_Logo.png" alt="NMStudio Logo" class="logo-main">
+            <span class="studio-name">NMStudio</span>
+        </div>
+        
+        <!-- Vertical Navigation -->
+        <nav class="vertical-nav">
+            <div class="nav-icons">
+                <a href="#home" class="nav-icon active" data-tooltip="首頁" data-lang="home">
+                    <i class="icon-home">🏠</i>
+                </a>
+                <a href="#services" class="nav-icon" data-tooltip="服務項目" data-lang="services">
+                    <i class="icon-services">⚙️</i>
+                </a>
+                <a href="#projects" class="nav-icon" data-tooltip="專案展示" data-lang="projects">
+                    <i class="icon-projects">🎨</i>
+                </a>
+                <a href="#order" class="nav-icon" data-tooltip="訂單系統" data-lang="order">
+                    <i class="icon-order">📋</i>
+                </a>
+                <a href="#contact" class="nav-icon" data-tooltip="聯絡我們" data-lang="contact">
+                    <i class="icon-contact">📞</i>
+                </a>
+            </div>
+            <div class="lang-switch-vertical">
+                <button class="lang-btn-vertical active" data-lang="zh">中</button>
+                <button class="lang-btn-vertical" data-lang="en">EN</button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="glitch-text">
+                        <h1 class="hero-title" data-lang="hero-title">NMStudio</h1>
+                        <p class="hero-subtitle" data-lang="hero-subtitle">AI 技術開發、3D 模型生成、智慧系統整合</p>
+                    </div>
+                    <div class="hero-description" data-lang="hero-description">
+                        <p>專注於 AI 技術開發、3D 模型生成、智慧系統整合與跨平台應用。我們致力於以創新與效率，協助客戶實現從概念到產品的完整技術落地。</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="cyber-btn primary" data-lang="start-project">開始專案</button>
+                        <button class="cyber-btn secondary" data-lang="view-portfolio">查看作品</button>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="video-preview-container">
+                        <div class="terminal-frame">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <span class="btn-close"></span>
+                                    <span class="btn-minimize"></span>
+                                    <span class="btn-maximize"></span>
+                                </div>
+                                <div class="terminal-title">NMStudio_Preview.exe</div>
+                            </div>
+                            <div class="terminal-content">
+                                <video id="hero-video" autoplay muted loop>
+                                    <source src="./assets/videos/demo.mp4" type="video/mp4">
+                                </video>
+                                <div class="terminal-overlay">
+                                    <div class="typing-indicator">
+                                        <span class="cursor">|</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title" data-lang="services-title">核心服務</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3 data-lang="ai-development">AI 專案開發</h3>
+                        <p data-lang="ai-description">AI 影像辨識、OCR、語音合成等模組整合</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎮</div>
+                        <h3 data-lang="3d-modeling">3D 建模動畫</h3>
+                        <p data-lang="3d-description">專業 3D 建模、動畫與視覺生成服務</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3 data-lang="system-integration">系統整合</h3>
+                        <p data-lang="system-description">跨平台系統開發與雲端部署</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title" data-lang="projects-title">專案展示</h2>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="window.location.href='/Projects/WebXR_Series/Zoo-WebXR/'">
+                        <div class="project-image">
+                            <img src="./assets/projects/zoo-webxr.jpg" alt="永生動物園WebXR">
+                        </div>
+                        <div class="project-info">
+                            <h3>永生動物園WebXR</h3>
+                            <p>沉浸式WebXR體驗</p>
+                        </div>
+                    </div>
+                    <div class="project-card" onclick="window.location.href='/Projects/WebXR_Series/culture_360/'">
+                        <div class="project-image">
+                            <img src="./assets/projects/culture-360.jpg" alt="段安國藝術家-虛擬展間">
+                        </div>
+                        <div class="project-info">
+                            <h3>段安國藝術家-虛擬展間</h3>
+                            <p>360度虛擬藝術空間</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="order-section">
+            <div class="container">
+                <h2 class="section-title" data-lang="order-title">訂單系統</h2>
+                <div class="order-container">
+                    <form id="orderForm" class="order-form">
+                        <div class="form-group">
+                            <label for="clientName" data-lang="client-name">客戶姓名</label>
+                            <input type="text" id="clientName" name="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientEmail" data-lang="client-email">電子郵件</label>
+                            <input type="email" id="clientEmail" name="clientEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType" data-lang="service-type">服務類型</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="" data-lang="select-service">請選擇服務</option>
+                                <option value="ai-development">AI 專案開發</option>
+                                <option value="3d-modeling">3D 建模動畫</option>
+                                <option value="system-integration">系統整合</option>
+                                <option value="custom">客製化服務</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription" data-lang="project-description">專案描述</label>
+                            <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget" data-lang="budget">預算範圍</label>
+                            <select id="budget" name="budget" required>
+                                <option value="" data-lang="select-budget">請選擇預算</option>
+                                <option value="10000-50000">NT$ 10,000 - 50,000</option>
+                                <option value="50000-200000">NT$ 50,000 - 200,000</option>
+                                <option value="200000-500000">NT$ 200,000 - 500,000</option>
+                                <option value="500000+">NT$ 500,000+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="cyber-btn primary submit-btn" data-lang="submit-order">提交訂單</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title" data-lang="contact-title">聯絡我們</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4 data-lang="email-title">電子郵件</h4>
+                                <p>contact@nmstudio.com</p>
+                                <p>business@nmstudio.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h4 data-lang="phone-title">聯絡電話</h4>
+                                <p>+886-2-1234-5678</p>
+                                <p>+886-2-8765-4321</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4 data-lang="address-title">公司地址</h4>
+                                <p>台北市信義區基隆路一段180號</p>
+                                <p>8樓 NMStudio 工作室</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-details">
+                                <h4 data-lang="hours-title">營業時間</h4>
+                                <p>週一至週五 09:00-18:00</p>
+                                <p>週六 10:00-16:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <div class="map-placeholder">
+                            🗺️ 地圖位置
+                            <br>
+                            <small>（Google Maps 整合開發中）</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Particles Background -->
+        <div id="particles-js"></div>
+        <!-- Background Animation -->
+        <div class="bg-animation"></div>
     </div>
 
-
-    <button onclick="window.location.href='/Projects/WebXR_Series/Zoo-WebXR/'">永生動物園WebXR</button>
-    <button onclick="window.location.href='/Projects/WebXR_Series/culture_360/'">段安國藝術家-虛擬展間</button>
-
-  </body>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./src/js/main.js"></script>
+    <script src="./src/js/ui/cyberpunk.js"></script>
+    <script src="./src/js/ui/animation.js"></script>
+    <script src="./src/js/ui/particles.js"></script>
+    <script src="./src/js/bot/bot-manager.js"></script>
+    <script src="./src/js/order/order-manager.js"></script>
+    <script src="./src/js/language/lang-switcher.js"></script>
+</body>
 </html>
